@@ -155,8 +155,9 @@ function MerchForm() {
         const validURL = `https://daksh.sastra.edu/registration/merch/getuser?uid=${uid}`;
         await fetch(validURL).then((res) => {
             const response = res.json;
-            console.log(response);
-            if(response.exist) {
+            console.log("The respone is: ", res);
+            console.log("The respone in JSON is: ", response);
+            if(res.exist) {
                 console.log(response.payment, response.delivered);
             }
             else {
