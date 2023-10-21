@@ -217,7 +217,7 @@ function MerchForm() {
             <MerchItem merchName={"TSHIRT"} imageLink={tshirt} shoppingLink="/merch/tshirt" />
             {validAuthToken !== null ?
                 status.exist ?
-                    <div className={styles.merch_confirmationcontainer}>
+                    <div className={styles.afteruipage}>
                         <h2>Welcome back, {userDetails.fullname}</h2>
                         <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{color: 'orange'}}>HALF PAID</h3> : <h3 style={{color: 'green'}}>FULL PAID</h3> : <h3 style={{color: 'orange'}}>UNDER VERIFICATION</h3>}</h3>
                         {status.payment === "full" ? 
