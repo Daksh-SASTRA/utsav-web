@@ -114,7 +114,8 @@ function MerchForm() {
                                     theme: "colored",
                                 });
                                 signOut(auth).then(() => {
-                                    setUserDetails({...userDetails, email: null, token: null, fullname: null, regno: null, userid: null})
+                                    setUserDetails({...userDetails, email: null, token: null, fullname: null, regno: null, userid: null});
+                                    updateValidAuthToken(null);
                                     toast.success("Payment under verification!", {
                                         position: "top-right",
                                         autoClose: 5000,
