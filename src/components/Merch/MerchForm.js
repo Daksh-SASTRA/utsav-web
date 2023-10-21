@@ -70,6 +70,11 @@ function MerchForm() {
         userid: null
     })
 
+    // const refreshState = (e) => {
+    //     e.preventDefault();
+    //     setValues({...values})
+    // }
+
     const handleChange = (fname) => (e) => {
         e.preventDefault();
         setValues({ ...values, [fname]: e.target.value });
@@ -78,6 +83,7 @@ function MerchForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setValues({...values})
         // let target = JSON.stringify(values)
         // console.log(Object.entries(values))
         Object.entries(values).forEach((el) => {
@@ -210,9 +216,9 @@ function MerchForm() {
             <MerchItem merchName={"TSHIRT"} imageLink={tshirt} shoppingLink="/merch/tshirt" />
             {validAuthToken !== null ?
                 status.exist ?
-                    <div className={styles.confirmationcontiner}>
-                        <h2>Welcome back, ${userDetails.fullname}</h2>
-                        <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{color: 'red'}}>HALF PAID</h3> : <h3 style={{color: 'green'}}>FULL PAID</h3> : <h3 style={{color: 'red'}}>NOT PAID or UNDER VERIFICATION</h3>}</h3>
+                    <div className={styles.merch-confirmationcontainer}>
+                        <h2>Welcome back, {userDetails.fullname}</h2>
+                        <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{color: 'orange'}}>HALF PAID</h3> : <h3 style={{color: 'green'}}>FULL PAID</h3> : <h3 style={{color: 'orange'}}>UNDER VERIFICATION</h3>}</h3>
                         {status.payment === "full" ? 
                         <h3>Your T-Shirt will be delivered soon!</h3>
                         :
