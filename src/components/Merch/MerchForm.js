@@ -52,7 +52,7 @@ function MerchForm() {
         transactionid: ""
     })
 
-    const [index, updateIndex] = useState(0)
+    // const [index, updateIndex] = useState(0)
     const [notEmpty, updateNotEmpty] = useState(null)
     const [error, setError] = useState(null)
     const [status, updateStatus] = useState({
@@ -69,11 +69,6 @@ function MerchForm() {
         regno: null,
         userid: null
     })
-
-    // const refreshState = (e) => {
-    //     e.preventDefault();
-    //     setValues({...values})
-    // }
 
     const handleChange = (e) => {
         e.preventDefault;
@@ -194,13 +189,6 @@ function MerchForm() {
             // console.log(error);
             setError(error);
         })
-    }
-
-    const handleGender = (e) => {
-        e.preventDefault();
-        console.log(e.target.name, e.target.value);
-        setValues(() => setValues({...values, [e.target.name]: e.target.value}));
-        console.log(values.gender);
     }
 
     useEffect(() => {
