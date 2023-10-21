@@ -60,7 +60,8 @@ function MerchForm() {
     const [userDetails, setUserDetails] = useState({
         email: null,
         token: null,
-        fullname: null
+        fullname: null,
+        regno: null
     })
 
     const handleChange = (fname) => (e) => {
@@ -113,17 +114,17 @@ function MerchForm() {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                console.log(user)
+                // console.log(user)
                 const [regisno, mail] = user.email.split('@');
                 //console.log(regno, mail)
-                setUserDetails({...userDetails, regno: regisno, email: user.email, })
                 if (mail.toString() === "sastra.ac.in") {
                     updateValidAuthToken(token)
-                    console.log("token",  token)
+                    // console.log("token",  token)
                     setUserDetails({
                         email: user.email,
                         token: user.accessToken,
-                        fullname: user.displayName
+                        fullname: user.displayName,
+                        regno: regisno
                     })
                 }
                 else {
@@ -166,8 +167,14 @@ function MerchForm() {
             {validAuthToken !== null ?
                 <form onSubmit={handleSubmit} className={styles.merch_form}>
                     <h2>Get your T-Shirt by filling up the following details</h2>
-                    <section><label>Enter your name: </label>
-                        <input placeholder="Your name" name="studname" type="text" onChange={handleChange("studname")} />
+                    <section><label>Name: </label>
+                        <input placeholder={userDetails.fullname} name="studname" type="text" disabled />
+                    </section>
+                    <section><label>Registration Number:</label>
+                        <input placeholder={userDetails.regno} name="registerno" type="text" disabled />
+                    </section>
+                    <section><label>SASTRA Mail ID:</label>
+                        <input placeholder={userDetails.email} name="email" type="email" disabled />
                     </section>
                     <section>
                         <label>Gender:</label>
@@ -195,12 +202,6 @@ function MerchForm() {
                             </div>
                         </div>
                     </section>
-                    {/* <section><label>Enter your register number:</label>
-                        <input placeholder="Your register number" name="registerno" type="text" onChange={handleChange("registerno")} />
-                    </section>
-                    <section><label>Enter your SASTRA Email id:</label>
-                        <input placeholder="Your sastra email id" name="email" type="email" onChange={handleChange("email")} />
-                    </section> */}
                     <section><label>Enter your mobile number:</label>
                         <input placeholder="Your mobile number" name="phoneno" type="tel" onChange={handleChange("phoneno")} />
                     </section>
