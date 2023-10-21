@@ -90,9 +90,12 @@ function MerchForm() {
             console.log("Sending request")
             await fetch(url)
                 .then((response) => {
+                    console.log("The response of submit: ", response);
+                    console.log("The response of submit with JSON method: ", response.json())
+                    console.log("The response of submit with JSON and body method: ", response.body.json())
                     if (response.status === 200) {
                         if (response.status === "SUCCESS") {
-                            console.log("success")
+                            // console.log("success")
                             alert('Success: Registration submitted successfully.');
                         }
                         else {
@@ -122,7 +125,8 @@ function MerchForm() {
                 if (mail.toString() === "sastra.ac.in") {
                     updateValidAuthToken(token)
                     // console.log("token",  token)
-                    setUserDetails({...userDetails,
+                    setUserDetails({
+                        ...userDetails,
                         email: user.email,
                         token: user.accessToken,
                         userid: user.uid,
@@ -154,11 +158,14 @@ function MerchForm() {
     const fetchPaymentDetails = async (uid) => {
         const validURL = `https://daksh.sastra.edu/registration/merch/getuser?uid=${uid}`;
         await fetch(validURL).then((res) => {
-            const response = res.body;
-            console.log("The respone is: ", res);
-            console.log("The respone in body is: ", response);
-            console.log("The respone in body JSON is: ", JSON.parse(response));
-            if(res.exist) {
+            console.log("The response of validation: ", res);
+            console.log("The response of validation with JSON method: ", res.json())
+            console.log("The response of validation with JSON and body method: ", res.body.json())
+            // const response = res.body;
+            // console.log("The respone is: ", res);
+            // console.log("The respone in body is: ", response);
+            // console.log("The respone in body JSON is: ", JSON.parse(response));
+            if (res.exist) {
                 console.log(response.payment, response.delivered);
             }
             else {
