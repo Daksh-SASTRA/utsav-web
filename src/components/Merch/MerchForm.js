@@ -75,9 +75,9 @@ function MerchForm() {
     //     setValues({...values})
     // }
 
-    const handleChange = (fname) => (e) => {
-        e.preventDefault();
-        setValues({ ...values, [fname]: e.target.value });
+    const handleChange = (e) => {
+        e.preventDefault;
+        setValues({ ...values, [e.target.name]: e.target.value });
         console.log(values);
     }
 
@@ -196,6 +196,13 @@ function MerchForm() {
         })
     }
 
+    const handleGender = (e) => {
+        e.preventDefault();
+        console.log(e.target.name, e.target.value);
+        setValues(() => setValues({...values, [e.target.name]: e.target.value}));
+        console.log(values.gender);
+    }
+
     useEffect(() => {
         if (error !== null) {
             toast.error(error, {
@@ -242,11 +249,11 @@ function MerchForm() {
                         <label>Gender:</label>
                         <div className={styles.radioboxdiv}>
                             <div>
-                                <input name="gender" type="radio" onClick={() => handleChange("gender")} value="Male" />
+                                <input name="gender" type="radio" onChange={handleChange} checked={values.gender == "Male"} value="Male" />
                                 <label htmlFor="Male">Male</label>
                             </div>
                             <div>
-                                <input name="gender" type="radio" onClick={() => handleChange("gender")} value="Female" />
+                                <input name="gender" type="radio" onChange={handleChange} checked={values.gender == "Female"} value="Female" />
                                 <label htmlFor="Female">Female</label>
                             </div>
                         </div>
@@ -255,52 +262,52 @@ function MerchForm() {
                         <label>Which campus are you from ?</label>
                         <div className={styles.radioboxdiv}>
                             <div>
-                                <input name="campus" type="radio" onClick={() => handleChange("campus")} value="Thanjavur" />
+                                <input name="campus" type="radio" onClick={handleChange} value="Thanjavur" />
                                 <label htmlFor="Thanjavur">Thanjavur</label>
                             </div>
                             <div>
-                                <input name="campus" type="radio" onClick={() => handleChange("campus")} value="Kumbakonam" />
+                                <input name="campus" type="radio" onClick={handleChange} value="Kumbakonam" />
                                 <label htmlFor="Kumbakonam">Kumbakonam</label>
                             </div>
                         </div>
                     </section>
                     <section><label>Enter your mobile number:</label>
-                        <input placeholder="Your mobile number" name="phoneno" type="tel" onChange={handleChange("phnno")} />
+                        <input placeholder="Your mobile number" name="phnno" type="tel" onChange={handleChange} />
                     </section>
                     <section>
                         <label>Enter your year of study:</label>
                         <div className={styles.radioboxdiv}>
                             <div>
-                                <input name="yos" type="radio" onClick={() => handleChange("yos")} value="1" />
+                                <input name="yos" type="radio" onClick={handleChange} value="1" />
                                 <label htmlFor="1">1</label>
                             </div>
                             <div>
-                                <input name="yos" type="radio" onClick={() => handleChange("yos")} value="2" />
+                                <input name="yos" type="radio" onClick={handleChange} value="2" />
                                 <label htmlFor="2">2</label>
                             </div>
                             <div>
-                                <input name="yos" type="radio" onClick={() => handleChange("yos")} value="3" />
+                                <input name="yos" type="radio" onClick={handleChange} value="3" />
                                 <label htmlFor="3">3</label>
                             </div>
                             <div>
-                                <input name="yos" type="radio" onClick={() => handleChange("yos")} value="4" />
+                                <input name="yos" type="radio" onClick={handleChange} value="4" />
                                 <label htmlFor="4">4</label>
                             </div>
                         </div>
                     </section>
                     <section><label>Enter your branch name: </label>
-                        <input placeholder="Your branch name" name="branch" type="text" onChange={handleChange("branch")} />
+                        <input placeholder="Your branch name" name="branch" type="text" onChange={handleChange} />
                     </section>
                     <section>
                         <label>Hosteller or Dayscholar ?</label>
                         <div className={styles.radioboxdiv}>
                             <div>
-                                <input name="hod" type="radio" onClick={() => handleChange("hod")} value="Dayscholar" />
-                                <label htmlFor="Dayscolar">Dayscholar</label>
+                                <input name="hod" type="radio" onClick={handleChange} value="Hosteller" />
+                                <label htmlFor="Hosteller">Hosteller</label>
                             </div>
                             <div>
-                                <input name="hod" type="radio" onClick={() => handleChange("hod")} value="Hosteller" />
-                                <label htmlFor="Hosteller">Hosteller</label>
+                                <input name="hod" type="radio" onClick={handleChange} value="Dayscholar" />
+                                <label htmlFor="Dayscolar">Dayscholar</label>
                             </div>
                         </div>
                     </section>
@@ -308,31 +315,31 @@ function MerchForm() {
                         <label>Enter your T-Shirt size:</label>
                         <div className={`${styles.radioboxdiv} ${styles.tshirtradio}`}>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="XS" />
+                                <input name="size" type="radio" onClick={handleChange} value="XS" />
                                 <label htmlFor="XS">XS</label>
                             </div>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="S" />
+                                <input name="size" type="radio" onClick={handleChange} value="S" />
                                 <label htmlFor="S">S</label>
                             </div>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="M" />
+                                <input name="size" type="radio" onClick={handleChange} value="M" />
                                 <label htmlFor="M">M</label>
                             </div>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="L" />
+                                <input name="size" type="radio" onClick={handleChange} value="L" />
                                 <label htmlFor="L">L</label>
                             </div>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="XL" />
+                                <input name="size" type="radio" onClick={handleChange} value="XL" />
                                 <label htmlFor="XL">XL</label>
                             </div>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="2XL" />
+                                <input name="size" type="radio" onClick={handleChange} value="2XL" />
                                 <label htmlFor="2XL">2XL</label>
                             </div>
                             <div>
-                                <input name="size" type="radio" onClick={() => handleChange("size")} value="3XL" />
+                                <input name="size" type="radio" onClick={handleChange} value="3XL" />
                                 <label htmlFor="3XL">3XL</label>
                             </div>
                         </div>
@@ -341,7 +348,7 @@ function MerchForm() {
                         <label>Pay ₹250 here</label>
                         <h4>saneesha293@okicici</h4>
                         <Image src='/payment.jpg' width={200} height={200} alt="QR Code for scanning" />
-                        <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange("transactionid")} />
+                        <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange} />
                     </section>
                     <div className={styles.register__btn__div}>
                         <button type="submit" className={styles.register__btn}>Submit</button>
