@@ -113,6 +113,21 @@ function MerchForm() {
                                     progress: undefined,
                                     theme: "colored",
                                 });
+                                signOut(auth).then(() => {
+                                    setUserDetails({...userDetails, email: null, token: null, fullname: null, regno: null, userid: null})
+                                    toast.success("Payment under verification!", {
+                                        position: "top-right",
+                                        autoClose: 5000,
+                                        hideProgressBar: true,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: false,
+                                        progress: undefined,
+                                        theme: "colored",
+                                    });
+                                }).catch((error) => {
+                                    setError(error);
+                                })
                             }
                             else {
                                 setError(res.msg);
