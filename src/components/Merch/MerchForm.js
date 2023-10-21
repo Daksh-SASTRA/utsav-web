@@ -53,6 +53,11 @@ function MerchForm() {
     const [index, updateIndex] = useState(0)
     const [notEmpty, updateNotEmpty] = useState(null)
     const [error, setError] = useState(null)
+    const [status, updateStatus] = useState({
+        exist: false,
+        delivered: "no",
+        payment: "no"
+    })
 
     const [validAuthToken, updateValidAuthToken] = useState(null)
     const [userDetails, setUserDetails] = useState({
@@ -66,13 +71,13 @@ function MerchForm() {
     const handleChange = (fname) => (e) => {
         e.preventDefault();
         setValues({ ...values, [fname]: e.target.value });
-        console.log(values)
+        // console.log(values)
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // let target = JSON.stringify(values)
-        console.log(Object.entries(values))
+        // console.log(Object.entries(values))
         Object.entries(values).forEach((el) => {
             Object.keys(el).forEach((property) => {
                 if (el[property] === "" || el[property] === " ") {
@@ -87,21 +92,29 @@ function MerchForm() {
         // console.log(values)
         if (notEmpty === true) {
             const url = `https://daksh.sastra.edu/registration/merch/register?token=${userDetails.token}&name=${values.stdname}&phno=${values.phnno}&gender=${values.gender}&campus=${values.campus}&yos=${values.yos}&branch=${values.branch}&tsize=${values.size}&hod=${values.hod}&txnid=${values.transactionid}`;
-            console.log("Sending request")
+            // console.log("Sending request")
             await fetch(url)
                 .then((response) => {
-                    console.log("The response of submit: ", response);
-                    console.log("The response of submit with JSON method: ", response.json())
-                    console.log("The response of submit with JSON and body method: ", response.body.json())
-                    if (response.status === 200) {
-                        if (response.status === "SUCCESS") {
-                            // console.log("success")
-                            alert('Success: Registration submitted successfully.');
+                    response.json().then((res) => {
+                        if (response.status === 200) {
+                            console.log(res)
+                            if (res.status) {
+                                toast.success(res.message, {
+                                    position: "top-right",
+                                    autoClose: 5000,
+                                    hideProgressBar: true,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: false,
+                                    progress: undefined,
+                                    theme: "colored",
+                                });
+                            }
+                            else {
+                                setError(res.message);
+                            }
                         }
-                        else {
-                            setError('User already registered!');
-                        }
-                    }
+                    })
                 })
                 .catch((error) => {
                     setError("Something went wrong with the request")
@@ -157,22 +170,19 @@ function MerchForm() {
 
     const fetchPaymentDetails = async (uid) => {
         const validURL = `https://daksh.sastra.edu/registration/merch/getuser?uid=${uid}`;
-        await fetch(validURL).then((res) => {
-            console.log("The response of validation: ", res);
-            console.log("The response of validation with JSON method: ", res.json())
-            console.log("The response of validation with JSON and body method: ", res.body.json())
-            // const response = res.body;
-            // console.log("The respone is: ", res);
-            // console.log("The respone in body is: ", response);
-            // console.log("The respone in body JSON is: ", JSON.parse(response));
-            if (res.exist) {
-                console.log(response.payment, response.delivered);
-            }
-            else {
-                console.log("User doesnt exist")
-            }
+        await fetch(validURL).then((response) => {
+            response.json().then((res) => {
+                if (response.status === 200) {
+                    console.log(res)
+                    if (res.exist) {
+                        // console.log("success")
+                        // alert('Success: Registration submitted successfully.');
+                        updateStatus({...status, delivered: res.delivered, payment: res.payment, exist: res.exist})
+                    }
+                }
+            })
         }).catch((error) => {
-            console.log(error);
+            // console.log(error);
             setError(error);
         })
     }
