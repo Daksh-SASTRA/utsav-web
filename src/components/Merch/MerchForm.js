@@ -155,6 +155,7 @@ function MerchForm() {
         const validURL = `https://daksh.sastra.edu/registration/merch/getuser?uid=${uid}`;
         await fetch(validURL).then((res) => {
             const response = res.json;
+            console.log(response);
             if(response.exist) {
                 console.log(response.payment, response.delivered);
             }
@@ -171,7 +172,7 @@ function MerchForm() {
         console.log(e);
     }
 
-    useEffect(() => {
+    useEffect(() => {P
         if (error !== null) {
             toast.error(error, {
                 position: "top-right",
