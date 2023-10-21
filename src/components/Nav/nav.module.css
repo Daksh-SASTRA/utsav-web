@@ -1,0 +1,134 @@
+#navbar {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    /* max-width: 1500px; */
+    height: 10vh;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    z-index: 999;
+    background: linear-gradient(90deg, var(--brown-dark) 0%, var(--brown-light) 100%);
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
+}
+#new_navbar {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    /* max-width: 1500px; */
+    height: 10vh;
+    top: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    z-index: 999;
+    background-color: black;
+}
+.active {
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+#logo{
+    margin: auto 0;
+    height: 75%;
+    cursor: pointer;
+}
+
+.navbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+}
+
+#hnav {
+    display: flex;
+}
+
+.navlink {
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    color: var(--text-brown);
+    transition: all 0.3s ease-in-out;
+}
+
+.navlink:hover {
+    color: var(--text-brown);
+    background-color:var(--brown-dark);
+    transition: all 0.3s ease-in-out;
+}
+
+#menu {
+    display: none;
+}
+
+#vnav {
+    display: flex;
+}
+
+/* #chatboxbutton {
+    background-color: white;
+    border-radius: 25px;
+} */
+
+
+@media only screen and (max-width: 1000px) {
+    #navbar {
+        /* padding: 0; */
+        padding: 0 20px ;
+        left: 0;
+
+    }
+    #logo{
+        margin-left: 20px;
+        height: 50%;
+    }
+    #hnav {
+        display: none;
+    }
+    #menu{
+        display: flex;
+        height: 10vh;
+        justify-content: center;
+        align-items: center;
+        margin: 0 15px 0 auto;
+    }
+    #vnav{
+        display: flex;
+        visibility: visible;
+        position: fixed;
+        right: 0;
+        top: 10vh;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        background-color: var(--brown-dark);
+        padding: 30px 0;
+        margin: auto;
+        transition: visibility 1s ease-in-out;
+    }
+    .navbutton {
+        display: flex;
+        height: 10vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0 3px;
+        padding: 30px 0;
+    }
+}
+
+/* @media screen and (max-width: 600px) {
+    #chatboxbutton {
+        width: 50%;
+        align-self: center;
+    }
+} */
