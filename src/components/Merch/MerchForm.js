@@ -59,7 +59,8 @@ function MerchForm() {
         email: null,
         token: null,
         fullname: null,
-        regno: null
+        regno: null,
+        userid: null
     })
 
     const handleChange = (fname) => (e) => {
@@ -115,18 +116,20 @@ function MerchForm() {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                // console.log(user)
+                const fetchUID = user.uid;
                 const [regisno, mail] = user.email.split('@');
                 //console.log(regno, mail)
                 if (mail.toString() === "sastra.ac.in") {
                     updateValidAuthToken(token)
                     // console.log("token",  token)
-                    setUserDetails({
+                    setUserDetails({...userDetails,
                         email: user.email,
                         token: user.accessToken,
+                        userid: user.uid,
                         fullname: user.displayName,
                         regno: regisno
                     })
+                    fetchPaymentDetails(fetchUID);
                 }
                 else {
                     signOut(auth).then(() => {
@@ -148,18 +151,40 @@ function MerchForm() {
             });
     }
 
+    const fetchPaymentDetails = async (uid) => {
+        const validURL = `https://daksh.sastra.edu/registration/merch/getuser?uid=${uid}`;
+        await fetch(validURL).then((res) => {
+            const response = res.json;
+            if(response.exist) {
+                console.log(response.payment, response.delivered);
+            }
+            else {
+                console.log("User doesnt exist")
+            }
+        }).catch((error) => {
+            console.log(error);
+            setError(error);
+        })
+    }
+
+    const handleActive = (e) => {
+        console.log(e);
+    }
+
     useEffect(() => {
-        toast.error(error, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "colored",
-        });
-        setError(null)
+        if (error !== null) {
+            toast.error(error, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+            });
+            setError(null)
+        }
     }, [error])
 
     return (
