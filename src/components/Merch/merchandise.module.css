@@ -150,18 +150,12 @@
 
 @media screen and (max-width: 700px) {
     .glassyCard {
-        width: 80%;
-    }
-    .imageContainer>h1 {
-        font-size: 7.5rem;
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 400px) {
     .merchImage {
         width: 60%;
-    }
-    .imageContainer>h1 {
-        font-size: 5rem;
     }
 }
