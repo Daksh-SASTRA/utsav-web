@@ -1,12 +1,14 @@
+// Importing default modules
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Importing components
 import Nav from '../components/Nav/Nav'
+import Footer from '@/components/Footer/Footer'
+import BlobGlow from '../components/BlobGlow/BlobGlow'
 
 // Importing stylesheets
 import styles from './page.module.css'
-import Link from 'next/link'
-import BlobGlow from '../components/BlobGlow/BlobGlow'
 
 export default function Home() {
     return (
@@ -18,6 +20,7 @@ export default function Home() {
                 <p className={styles.buypara}>To buy the official Merchandise, click below</p>
                 <button className={styles.buybutton}><Link href='/merch'>Buy Now</Link></button>
             </section>
+            <Footer />
         </main>
     )
 }
