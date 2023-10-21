@@ -437,6 +437,15 @@
     text-align: center;
   }
 
+  .radioboxdiv {
+    flex-wrap: wrap;
+    /* gap: 1rem; */
+  }
+
+  .radioboxdiv div {
+    width: 12.5%;
+  }
+
   .loginui {
     height: auto;
     width: 90%;
