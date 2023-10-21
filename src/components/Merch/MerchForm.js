@@ -53,7 +53,7 @@ function MerchForm() {
     })
 
     // const [index, updateIndex] = useState(0)
-    const [notEmpty, updateNotEmpty] = useState(null)
+    // const [notEmpty, updateNotEmpty] = useState(true)
     const [error, setError] = useState(null)
     const [status, updateStatus] = useState({
         exist: false,
@@ -78,23 +78,23 @@ function MerchForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setValues({...values})
+        let empty = null;
         // let target = JSON.stringify(values)
         // console.log(Object.entries(values))
         Object.entries(values).forEach((el) => {
             Object.keys(el).forEach((property) => {
                 if (el[property] === "" || el[property] === " ") {
                     console.log(el, el[property]);
-                    setError("Kindly fill in all the data!")
-                    updateNotEmpty(false)
+                    setError("Kindly fill in all the data!");
+                    empty = false;
                 }
             })
         })
-        if (notEmpty === null) {
-            updateNotEmpty(true)
+        if (empty === null) {
+            empty = true;
         }
-        // console.log(values)
-        if (notEmpty === true) {
+        // console.log(values, notEmpty);
+        if (empty === true) {
             const url = `https://daksh.sastra.edu/registration/merch/register?token=${userDetails.token}&name=${values.stdname}&phno=${values.phnno}&gender=${values.gender}&campus=${values.campus}&yos=${values.yos}&branch=${values.branch}&tsize=${values.size}&hod=${values.hod}&txnid=${values.transactionid}`;
             // console.log("Sending request")
             await fetch(url)
@@ -181,7 +181,7 @@ function MerchForm() {
                     if (res.exist) {
                         // console.log("success")
                         // alert('Success: Registration submitted successfully.');
-                        updateStatus({...status, delivered: res.delivered, payment: res.payment, exist: res.exist})
+                        updateStatus({ ...status, delivered: res.delivered, payment: res.payment, exist: res.exist })
                     }
                 }
             })
@@ -214,134 +214,134 @@ function MerchForm() {
                 status.exist ?
                     <div className={styles.afteruipage}>
                         <h2>Welcome back, {userDetails.fullname}</h2>
-                        <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{color: 'orange'}}>HALF PAID</h3> : <h3 style={{color: 'green'}}>FULL PAID</h3> : <h3 style={{color: 'orange'}}>UNDER VERIFICATION</h3>}</h3>
-                        {status.payment === "full" ? 
-                        <h3>Your T-Shirt will be delivered soon!</h3>
-                        :
-                        <h3>Kindly Pay the full amount!</h3>
+                        <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{ color: 'orange' }}>HALF PAID</h3> : <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
+                        {status.payment === "full" ?
+                            <h3>Your T-Shirt will be delivered soon!</h3>
+                            :
+                            <h3>Kindly Pay the full amount!</h3>
                         }
                     </div>
                     :
                     <form onSubmit={handleSubmit} className={styles.merch_form}>
-                    <h2>Get your T-Shirt by filling up the following details</h2>
-                    <section><label>Name: </label>
-                        <input placeholder={userDetails.fullname} name="studname" type="text" disabled />
-                    </section>
-                    <section><label>Registration Number:</label>
-                        <input placeholder={userDetails.regno} name="registerno" type="text" disabled />
-                    </section>
-                    <section><label>SASTRA Mail ID:</label>
-                        <input placeholder={userDetails.email} name="email" type="email" disabled />
-                    </section>
-                    <section>
-                        <label>Gender:</label>
-                        <div className={styles.radioboxdiv}>
-                            <div>
-                                <input name="gender" type="radio" onChange={handleChange} checked={values.gender == "Male"} value="Male" />
-                                <label htmlFor="Male">Male</label>
+                        <h2>Get your T-Shirt by filling up the following details</h2>
+                        <section><label>Name: </label>
+                            <input placeholder={userDetails.fullname} name="studname" type="text" disabled />
+                        </section>
+                        <section><label>Registration Number:</label>
+                            <input placeholder={userDetails.regno} name="registerno" type="text" disabled />
+                        </section>
+                        <section><label>SASTRA Mail ID:</label>
+                            <input placeholder={userDetails.email} name="email" type="email" disabled />
+                        </section>
+                        <section>
+                            <label>Gender:</label>
+                            <div className={styles.radioboxdiv}>
+                                <div>
+                                    <input name="gender" type="radio" onChange={handleChange} checked={values.gender == "Male"} value="Male" />
+                                    <label htmlFor="Male">Male</label>
+                                </div>
+                                <div>
+                                    <input name="gender" type="radio" onChange={handleChange} checked={values.gender == "Female"} value="Female" />
+                                    <label htmlFor="Female">Female</label>
+                                </div>
                             </div>
-                            <div>
-                                <input name="gender" type="radio" onChange={handleChange} checked={values.gender == "Female"} value="Female" />
-                                <label htmlFor="Female">Female</label>
+                        </section>
+                        <section>
+                            <label>Which campus are you from ?</label>
+                            <div className={styles.radioboxdiv}>
+                                <div>
+                                    <input name="campus" type="radio" onClick={handleChange} value="Thanjavur" />
+                                    <label htmlFor="Thanjavur">Thanjavur</label>
+                                </div>
+                                <div>
+                                    <input name="campus" type="radio" onClick={handleChange} value="Kumbakonam" />
+                                    <label htmlFor="Kumbakonam">Kumbakonam</label>
+                                </div>
                             </div>
+                        </section>
+                        <section><label>Enter your mobile number:</label>
+                            <input placeholder="Your mobile number" name="phnno" type="tel" onChange={handleChange} />
+                        </section>
+                        <section>
+                            <label>Enter your year of study:</label>
+                            <div className={styles.radioboxdiv}>
+                                <div>
+                                    <input name="yos" type="radio" onClick={handleChange} value="1" />
+                                    <label htmlFor="1">1</label>
+                                </div>
+                                <div>
+                                    <input name="yos" type="radio" onClick={handleChange} value="2" />
+                                    <label htmlFor="2">2</label>
+                                </div>
+                                <div>
+                                    <input name="yos" type="radio" onClick={handleChange} value="3" />
+                                    <label htmlFor="3">3</label>
+                                </div>
+                                <div>
+                                    <input name="yos" type="radio" onClick={handleChange} value="4" />
+                                    <label htmlFor="4">4</label>
+                                </div>
+                            </div>
+                        </section>
+                        <section><label>Enter your branch name: </label>
+                            <input placeholder="Your branch name" name="branch" type="text" onChange={handleChange} />
+                        </section>
+                        <section>
+                            <label>Hosteller or Dayscholar ?</label>
+                            <div className={styles.radioboxdiv}>
+                                <div>
+                                    <input name="hod" type="radio" onClick={handleChange} value="Hosteller" />
+                                    <label htmlFor="Hosteller">Hosteller</label>
+                                </div>
+                                <div>
+                                    <input name="hod" type="radio" onClick={handleChange} value="Dayscholar" />
+                                    <label htmlFor="Dayscolar">Dayscholar</label>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <label>Enter your T-Shirt size:</label>
+                            <div className={`${styles.radioboxdiv} ${styles.tshirtradio}`}>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="XS" />
+                                    <label htmlFor="XS">XS</label>
+                                </div>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="S" />
+                                    <label htmlFor="S">S</label>
+                                </div>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="M" />
+                                    <label htmlFor="M">M</label>
+                                </div>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="L" />
+                                    <label htmlFor="L">L</label>
+                                </div>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="XL" />
+                                    <label htmlFor="XL">XL</label>
+                                </div>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="2XL" />
+                                    <label htmlFor="2XL">2XL</label>
+                                </div>
+                                <div>
+                                    <input name="size" type="radio" onClick={handleChange} value="3XL" />
+                                    <label htmlFor="3XL">3XL</label>
+                                </div>
+                            </div>
+                        </section>
+                        <section className={styles.qrcodesection}>
+                            <label>Pay ₹250 here</label>
+                            <h4>saneesha293@okicici</h4>
+                            <Image src='/payment.jpg' width={200} height={200} alt="QR Code for scanning" />
+                            <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange} />
+                        </section>
+                        <div className={styles.register__btn__div}>
+                            <button type="submit" className={styles.register__btn}>Submit</button>
                         </div>
-                    </section>
-                    <section>
-                        <label>Which campus are you from ?</label>
-                        <div className={styles.radioboxdiv}>
-                            <div>
-                                <input name="campus" type="radio" onClick={handleChange} value="Thanjavur" />
-                                <label htmlFor="Thanjavur">Thanjavur</label>
-                            </div>
-                            <div>
-                                <input name="campus" type="radio" onClick={handleChange} value="Kumbakonam" />
-                                <label htmlFor="Kumbakonam">Kumbakonam</label>
-                            </div>
-                        </div>
-                    </section>
-                    <section><label>Enter your mobile number:</label>
-                        <input placeholder="Your mobile number" name="phnno" type="tel" onChange={handleChange} />
-                    </section>
-                    <section>
-                        <label>Enter your year of study:</label>
-                        <div className={styles.radioboxdiv}>
-                            <div>
-                                <input name="yos" type="radio" onClick={handleChange} value="1" />
-                                <label htmlFor="1">1</label>
-                            </div>
-                            <div>
-                                <input name="yos" type="radio" onClick={handleChange} value="2" />
-                                <label htmlFor="2">2</label>
-                            </div>
-                            <div>
-                                <input name="yos" type="radio" onClick={handleChange} value="3" />
-                                <label htmlFor="3">3</label>
-                            </div>
-                            <div>
-                                <input name="yos" type="radio" onClick={handleChange} value="4" />
-                                <label htmlFor="4">4</label>
-                            </div>
-                        </div>
-                    </section>
-                    <section><label>Enter your branch name: </label>
-                        <input placeholder="Your branch name" name="branch" type="text" onChange={handleChange} />
-                    </section>
-                    <section>
-                        <label>Hosteller or Dayscholar ?</label>
-                        <div className={styles.radioboxdiv}>
-                            <div>
-                                <input name="hod" type="radio" onClick={handleChange} value="Hosteller" />
-                                <label htmlFor="Hosteller">Hosteller</label>
-                            </div>
-                            <div>
-                                <input name="hod" type="radio" onClick={handleChange} value="Dayscholar" />
-                                <label htmlFor="Dayscolar">Dayscholar</label>
-                            </div>
-                        </div>
-                    </section>
-                    <section>
-                        <label>Enter your T-Shirt size:</label>
-                        <div className={`${styles.radioboxdiv} ${styles.tshirtradio}`}>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="XS" />
-                                <label htmlFor="XS">XS</label>
-                            </div>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="S" />
-                                <label htmlFor="S">S</label>
-                            </div>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="M" />
-                                <label htmlFor="M">M</label>
-                            </div>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="L" />
-                                <label htmlFor="L">L</label>
-                            </div>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="XL" />
-                                <label htmlFor="XL">XL</label>
-                            </div>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="2XL" />
-                                <label htmlFor="2XL">2XL</label>
-                            </div>
-                            <div>
-                                <input name="size" type="radio" onClick={handleChange} value="3XL" />
-                                <label htmlFor="3XL">3XL</label>
-                            </div>
-                        </div>
-                    </section>
-                    <section className={styles.qrcodesection}>
-                        <label>Pay ₹250 here</label>
-                        <h4>saneesha293@okicici</h4>
-                        <Image src='/payment.jpg' width={200} height={200} alt="QR Code for scanning" />
-                        <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange} />
-                    </section>
-                    <div className={styles.register__btn__div}>
-                        <button type="submit" className={styles.register__btn}>Submit</button>
-                    </div>
-                </form>
+                    </form>
                 :
                 <div className={styles.loginui}>
                     <button onClick={studentLogin}><FontAwesomeIcon icon={faGoogle} /> Sign In</button>
