@@ -119,7 +119,7 @@ function Nav() {
 		// <nav id={styles.navbar} className={navbarBg ? styles.active : ""}>
 		<nav id={styles.new_navbar}>
 			<Link passHref href="/">
-			<div >
+			<div>
 			<Image 
 					width={120} 
 					height={50}
@@ -130,9 +130,8 @@ function Nav() {
 					alt="Logo-Daksh"
 				/>
 			</div>
-
 			</Link>
-			{hnav}
+			{/* {hnav}
 			{navmenu ? (
 				<div
 					id={styles.menu}
@@ -151,7 +150,7 @@ function Nav() {
 				>
 					<IoMenu size={35} />
 				</div>
-			)}
+			)} */}
 		</nav>
 	);
 }
