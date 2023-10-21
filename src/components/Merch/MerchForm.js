@@ -343,7 +343,7 @@ function MerchForm() {
                 :
                 <div className={styles.loginui}>
                     <button onClick={studentLogin}><FontAwesomeIcon icon={faGoogle} /> Sign In</button>
-                    <p>** kindly use SASTRA mail to log in **</p>
+                    <p>* kindly use SASTRA mail to log in *</p>
                 </div>
             }
             <ToastContainer />
