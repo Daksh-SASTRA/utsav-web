@@ -32,7 +32,7 @@
     }
   
     66% {
-      left: 75%;
+      left: 65%;
       top: 25%;
       /* transform: translate(-50%, 50%); */
       background-image: url("/blobs/blob3.png");
@@ -44,3 +44,12 @@
       background-image: url("/blobs/blob1.png");
     }
   }
+
+@media screen and (max-width: 700px) {
+  .first_blob {
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+    filter: blur(30px);
+  }
+}

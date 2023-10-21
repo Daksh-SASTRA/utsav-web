@@ -39,7 +39,7 @@ function Nav() {
 					<a className={styles.navlink}>Schedule</a>
 				</Link>
 			</div> */}
-			<div
+			{/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="200"
@@ -47,7 +47,7 @@ function Nav() {
 				<Link href="/merch" legacyBehavior>
 					<a className={styles.navlink}>Merchandise</a>
 				</Link>
-			</div>
+			</div> */}
 			{/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
