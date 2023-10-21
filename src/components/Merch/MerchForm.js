@@ -40,7 +40,6 @@ function MerchForm() {
     const tshirt = [tshirtf, tshirtb]
 
     const [values, setValues] = useState({
-        stdname: "",
         phnno: "",
         gender: "",
         campus: "",
@@ -48,8 +47,7 @@ function MerchForm() {
         branch: "",
         size: "",
         hod: "",
-        transactionid: "",
-        regno: "",
+        transactionid: ""
     })
 
     const [index, updateIndex] = useState(0)
@@ -73,9 +71,8 @@ function MerchForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // let target = JSON.stringify(values)
-        let target = JSON.parse(values)
-        console.log(target)
-        target.forEach((el) => {
+        console.log(Object.entries(values))
+        Object.entries(values).forEach((el) => {
             Object.keys(el).forEach((property) => {
                 if (el[property] === "" || el[property] === " ") {
                     setError("Kindly fill in all the data!")
@@ -83,14 +80,18 @@ function MerchForm() {
                 }
             })
         })
+        if (notEmpty === null) {
+            updateNotEmpty(true)
+        }
         // console.log(values)
         if (notEmpty === true) {
             const url = `https://daksh.sastra.edu/registration/merch/register?token=${userDetails.token}&name=${values.stdname}&phno=${values.phnno}&gender=${values.gender}&campus=${values.campus}&yos=${values.yos}&branch=${values.branch}&tsize=${values.size}&hod=${values.hod}&txnid=${values.transactionid}`;
-
+            console.log("Sending request")
             await fetch(url)
                 .then((response) => {
                     if (response.status === 200) {
                         if (response.status === "SUCCESS") {
+                            console.log("success")
                             alert('Success: Registration submitted successfully.');
                         }
                         else {
@@ -209,19 +210,19 @@ function MerchForm() {
                         <label>Enter your year of study:</label>
                         <div className={styles.radioboxdiv}>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("yos")} value="1" />
+                                <input name="yos" type="radio" onClick={handleChange("yos")} value="1" />
                                 <label htmlFor="1">1</label>
                             </div>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("yos")} value="2" />
+                                <input name="yos" type="radio" onClick={handleChange("yos")} value="2" />
                                 <label htmlFor="2">2</label>
                             </div>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("yos")} value="3" />
+                                <input name="yos" type="radio" onClick={handleChange("yos")} value="3" />
                                 <label htmlFor="3">3</label>
                             </div>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("yos")} value="4" />
+                                <input name="yos" type="radio" onClick={handleChange("yos")} value="4" />
                                 <label htmlFor="4">4</label>
                             </div>
                         </div>

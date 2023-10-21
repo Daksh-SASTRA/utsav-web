@@ -64,26 +64,26 @@
   /* align-content: center; */
 }
 
-.radioboxdiv div input[type="radio"] {
+.radioboxdiv input[type="radio"] {
   margin: 0;
-  padding: 6px;
-  width: 10%;
-  appearance: none;
-  border-radius: 50%;
-  width: 2px;
-  height: 2px;
-  margin-right: 4px;
-  /* height: 8px; */
-  background-color: #8D4AD8;
-  border: 2px solid #8D4AD8;
+  /* padding: 6px; */
+  /* width: 10%; */
+  /* appearance: none; */
+  /* border-radius: 50%; */
+  /* width: 10px; */
+  /* height: 10px; */
+  /* margin-right: 4px; */
+  /* background-color: #8D4AD8; */
+  /* border: 2px solid #8D4AD8; */
 }
 
-.radioboxdiv div input[type="radio"]:checked,
-.radioboxdiv div input[type="radio"]:focus,
-.radioboxdiv div input[type="radio"]:active,
-.radioboxdiv div input[type="radio"]:target,
-.radioboxdiv div input[type="radio"]:visited {
+.radioboxdiv div input:hover {
+  cursor: pointer;
+}
+
+.radioboxdiv [type="radio"]:checked {
   border: 2px solid white;
+  box-shadow: 0 0 0 3px orange;
 }
 
 .tshirtradio div {
