@@ -157,7 +157,7 @@ function MerchForm() {
             const response = res.body;
             console.log("The respone is: ", res);
             console.log("The respone in body is: ", response);
-            console.log("The respone in body JSON is: ", response.json);
+            console.log("The respone in body JSON is: ", JSON.parse(response));
             if(res.exist) {
                 console.log(response.payment, response.delivered);
             }
