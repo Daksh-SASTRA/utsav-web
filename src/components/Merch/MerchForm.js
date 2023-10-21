@@ -203,25 +203,25 @@ function MerchForm() {
                         </div>
                     </section>
                     <section><label>Enter your mobile number:</label>
-                        <input placeholder="Your mobile number" name="phoneno" type="tel" onChange={handleChange("phoneno")} />
+                        <input placeholder="Your mobile number" name="phoneno" type="tel" onChange={handleChange("phnno")} />
                     </section>
                     <section>
                         <label>Enter your year of study:</label>
                         <div className={styles.radioboxdiv}>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("year")} value="1" />
+                                <input name="year" type="radio" onClick={handleChange("yos")} value="1" />
                                 <label htmlFor="1">1</label>
                             </div>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("year")} value="2" />
+                                <input name="year" type="radio" onClick={handleChange("yos")} value="2" />
                                 <label htmlFor="2">2</label>
                             </div>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("year")} value="3" />
+                                <input name="year" type="radio" onClick={handleChange("yos")} value="3" />
                                 <label htmlFor="3">3</label>
                             </div>
                             <div>
-                                <input name="year" type="radio" onClick={handleChange("year")} value="4" />
+                                <input name="year" type="radio" onClick={handleChange("yos")} value="4" />
                                 <label htmlFor="4">4</label>
                             </div>
                         </div>

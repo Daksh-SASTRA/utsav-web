@@ -56,12 +56,34 @@
 }
 
 .radioboxdiv div {
-  width: 40%;
-  text-align: center;
+  /* width: 40%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  /* align-content: center; */
 }
 
-.radioboxdiv div input {
+.radioboxdiv div input[type="radio"] {
+  margin: 0;
+  padding: 6px;
   width: 10%;
+  appearance: none;
+  border-radius: 50%;
+  width: 2px;
+  height: 2px;
+  margin-right: 4px;
+  /* height: 8px; */
+  background-color: #8D4AD8;
+  border: 2px solid #8D4AD8;
+}
+
+.radioboxdiv div input[type="radio"]:checked,
+.radioboxdiv div input[type="radio"]:focus,
+.radioboxdiv div input[type="radio"]:active,
+.radioboxdiv div input[type="radio"]:target,
+.radioboxdiv div input[type="radio"]:visited {
+  border: 2px solid white;
 }
 
 .tshirtradio div {
@@ -101,23 +123,23 @@
 
 .register__btn {
   /* margin-top: 32px; */
-  padding: 12px 20px;
-  font-size: 1.3rem;
-  font-weight: 600;
+  padding: 10px 30px;
+  font-size: 1.25rem;
+  font-weight: 500;
   text-align: center;
   background-color: white;
   color: black;
   /* animation: glow 8s linear infinite; */
   /* background-image: var(--hover-gradient); */
   border-radius: 5px;
-  background-size: 400%;
+  /* background-size: 400%; */
   border-style: hidden;
   cursor: pointer;
 }
 
 .register__btn:hover {
-  background-color: #8494ff;
-  color: black;
+  background-color: #8D4AD8;
+  color: white;
 }
 
 /* merch form css ends */
@@ -209,7 +231,7 @@
 
 .merch__imageoperation:hover {
   cursor: pointer;
-  color: #8494ff;
+  color: #8D4AD8;
 }
 
 .merch__desccontainer {
