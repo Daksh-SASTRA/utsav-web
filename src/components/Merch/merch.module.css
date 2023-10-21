@@ -381,8 +381,8 @@
   border: 2px solid #8D4AD8;
 }
 
-.confirmationcontainer {
-  width: 100%;
+.merch-confirmationcontainer {
+  width: 40%;
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -390,7 +390,7 @@
   justify-content: space-evenly;
 }
 
-.confirmationcontiner > h4 {
+.merch-confirmationcontiner > h4 {
   font-size: 1.5rem;
 }
 

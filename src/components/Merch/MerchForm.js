@@ -211,12 +211,12 @@ function MerchForm() {
             {validAuthToken !== null ?
                 status.exist ?
                     <div className={styles.confirmationcontiner}>
-                        <h4>Welcome back, ${userDetails.fullname}</h4>
-                        <h6>Your payment status: {status.payment !== "no" ? status.payment == "half" ? "HALF paid" : "FULL paid" : "NOT paid (or) Under verification"}</h6>
+                        <h2>Welcome back, ${userDetails.fullname}</h2>
+                        <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{color: 'red'}}>HALF PAID</h3> : <h3 style={{color: 'green'}}>FULL PAID</h3> : <h3 style={{color: 'red'}}>NOT PAID or UNDER VERIFICATION</h3>}</h3>
                         {status.payment === "full" ? 
-                        <h6>Your T-Shirt will be delivered soon!</h6>
+                        <h3>Your T-Shirt will be delivered soon!</h3>
                         :
-                        <h6>Kindly Pay the full amount!</h6>
+                        <h3>Kindly Pay the full amount!</h3>
                         }
                     </div>
                     :
