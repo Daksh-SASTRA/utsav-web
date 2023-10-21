@@ -113,9 +113,10 @@ function MerchForm() {
                 const user = result.user;
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
-                const [regisno, mail] = result.user.email.split('@');
+                console.log(user)
+                const [regisno, mail] = user.email.split('@');
                 //console.log(regno, mail)
-                setUserDetails({...userDetails, regno: regisno})
+                setUserDetails({...userDetails, regno: regisno, email: user.email, })
                 if (mail.toString() === "sastra.ac.in") {
                     updateValidAuthToken(token)
                     console.log("token",  token)

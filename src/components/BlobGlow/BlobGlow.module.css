@@ -5,16 +5,15 @@
   }
   
   .first_blob {
-    left: -50px;
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
     z-index: -1;
-    background-size: cover;
+    /* background-size: cover; */
     background-position: center center;
-    background-repeat: repeat;
+    /* background-repeat: repeat; */
     background-image: url("/blobs/blob1.png");
     opacity: 0.5;
-    filter: blur(100px);
+    filter: blur(70px);
     animation: first-blob-change infinite 30s ease-in-out;
   }
   
@@ -25,13 +24,23 @@
       background-image: url("/blobs/blob1.png");
     }
   
-    50% {
-      left: calc(100% - 150px);
-      top: calc(100% - 350px);
+    33% {
+      left: 40%;
+      top: 40%;
+      /* transform: translate(-50%, 50%); */
       background-image: url("/blobs/blob2.png");
     }
   
+    66% {
+      left: 75%;
+      top: 25%;
+      /* transform: translate(-50%, 50%); */
+      background-image: url("/blobs/blob3.png");
+    }
+
     100% {
+      top: 0;
+      left: 0;
       background-image: url("/blobs/blob1.png");
     }
   }
