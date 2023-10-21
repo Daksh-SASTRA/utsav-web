@@ -172,7 +172,7 @@ function MerchForm() {
         console.log(e);
     }
 
-    useEffect(() => {P
+    useEffect(() => {
         if (error !== null) {
             toast.error(error, {
                 position: "top-right",
