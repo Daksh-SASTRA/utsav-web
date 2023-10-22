@@ -8,7 +8,7 @@
 .back{
     transform: rotate(-90deg);
     position: absolute;
-    top: 105%;
+    top: 115%;
     cursor: pointer;
     right: calc(50vw - 30px);
 }
@@ -18,7 +18,7 @@
 }
 .event_details {
     display: grid;
-    margin: 1rem 3rem 6rem  1rem;
+    margin: 1rem 3rem 10rem  1rem;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     justify-content: center;
