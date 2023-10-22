@@ -1,0 +1,191 @@
+.main {
+    width: 100vw;
+    margin-top: 10vh;
+    min-height: 80vh;
+    font-family: 'Poppins', sans-serif;
+
+}
+.back{
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 105%;
+    cursor: pointer;
+    right: calc(50vw - 30px);
+}
+.group{
+    position: relative;
+    margin-bottom: 2rem;
+}
+.event_details {
+    display: grid;
+    margin: 1rem 3rem 6rem  1rem;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin-right: 3rem;
+    margin-left: 3rem;
+}
+
+.disable {
+    color: #000;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+.caption {
+    justify-self: start;
+    font-size: 1rem;
+}
+
+.company {
+    font-size: 1rem;
+    font-weight: 200;
+
+}
+
+.description {
+    font-size: 18px;
+    text-align: justify;
+    text-align-last: center
+}
+
+.tagline {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.price {
+    font-size: 22px;
+}
+
+.sideContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 500px;
+}
+
+.heading {
+    font-size: 4.8rem;
+    text-align: center;
+    font-family: Poppins;
+    padding-top: 2rem;
+
+}
+
+.register>button {
+    width: max-content;
+    padding: 0.85rem 1.5rem;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.585);
+    color: black;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.5s ease;
+    /* width: 100%; */
+}
+
+.register>button:hover {
+    cursor: no-drop;
+    /* transform: scale(1.1); */
+}
+
+@media screen and (max-width: 1080px) {
+    .heading {
+        font-size: 3rem;
+    }
+
+    .event_details {
+        grid-template-columns: 1fr;
+        margin: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .heading {
+        font-size: 2.5rem;
+
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .register>button {
+        font-size: 1.2rem;
+    }
+
+    .caption {
+        justify-self: start;
+        font-size: 1rem;
+    }
+
+    .company {
+        font-size: 1rem;
+        font-weight: 200;
+
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .tagline {
+        font-size: 1.4rem;
+        font-style: italic;
+        font-weight: 200;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+
+}
+
+@media screen and (max-width: 500px) {
+    .title {
+        font-size: 1.7rem;
+    }
+
+    .logo {
+        width: 300px;
+    }
+
+    .company {
+        font-size: 1rem;
+        font-weight: 200;
+
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+    .logo {
+        width: 250px;
+    }
+}
