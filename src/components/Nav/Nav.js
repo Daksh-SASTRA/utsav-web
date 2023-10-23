@@ -57,16 +57,16 @@ function Nav() {
 					<a className={styles.navlink}>Hackathons</a>
 				</Link>
 			</div> */}
-            {/* <div
+			<div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="200"
 			>
-				<Link href="/events-workshop?q=workshops">
-					<a className={styles.navlink}>Workshops/Events</a>
+				<Link href="/workshops" legacyBehavior>
+					<a className={styles.navlink}>Workshops</a>
 				</Link>
-			</div> */}
-            {/* <div
+			</div>
+			{/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="400"

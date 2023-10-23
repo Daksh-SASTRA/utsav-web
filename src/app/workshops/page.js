@@ -6,7 +6,7 @@ import styles from './page.module.css'
 
 // Importing components
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
-import Nav from '../../components/Nav/Nav';
+import Nav from '@/components/Nav/Nav';
 import SmallTile from '@/components/SmallTile/SmallTile';
 import Footer from '@/components/Footer/Footer';
 
