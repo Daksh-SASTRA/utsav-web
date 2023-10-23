@@ -32,16 +32,16 @@ export default function Page(params) {
             <p className={styles.company}>{workshopEvent.company}</p>
             <p className={styles.tagline}>{workshopEvent.tagline}</p>
             <p className={styles.description}>{workshopEvent.description}</p>
-            <p className={styles.caption}>{workshopEvent.caption}</p>
+            {/* <p className={styles.caption}>{workshopEvent.caption}</p> */}
             <p className={styles.price}>Price: T.B.A</p>
             <div className={styles.register}>
               <button disabled={true}>Register</button>
             </div>
           </div>
         </div>
-        <span onClick={goBack} className={styles.back}>
+        {/* <span onClick={goBack} className={styles.back}>
           <Image src="/back.webp" alt='Back' width={60} height={60} />
-        </span>
+        </span> */}
       </div>
     </main>
     {/* <Footer /> */}
