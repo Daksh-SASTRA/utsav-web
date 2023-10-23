@@ -3,18 +3,19 @@
 // Importing default modules
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
+import Image from 'next/image';
 
 // Importing stylesheets
 import styles from "./details.module.css";
 
 // Importing components
 import Nav from '@/components/Nav/Nav';
-import Image from 'next/image';
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Footer from '@/components/Footer/Footer';
 
 // Importing data elements
 import WorkshopsData from '@/components/config/WorkshopsData.json';
+import Link from 'next/link';
 
 export default function Page(params) {
   const workshopId = params.params.slugid;
@@ -44,7 +45,7 @@ export default function Page(params) {
             {/* <p className={styles.caption}>{workshopEvent.caption}</p> */}
             <p className={styles.price}>Price: T.B.A</p>
             <div className={styles.register}>
-              <button disabled={true}>Register</button>
+              <button><Link href={`/workshops/register?id=${workshopId}`}>Register</Link></button>
             </div>
           </div>
         </div>
