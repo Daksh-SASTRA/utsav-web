@@ -1,0 +1,113 @@
+[
+    {
+        "day": "0",
+        "date": "6",
+        "events": [
+            {
+                "eventId": "1",
+                "eventname": "Te(X)Scape",
+                "fromtime": "04:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "3",
+                "eventname": "Knowledge knockout",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "5",
+                "eventname": "Gear up!",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "7",
+                "eventname": "Bingo maniacs",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "9",
+                "eventname": "Spot the spoof",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "11",
+                "eventname": "Cash Royale",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "13",
+                "eventname": "F1FA",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            }
+        ]
+    },
+    {
+        "day": "1",
+        "date": "7",
+        "events": [
+            {
+                "eventId": "2",
+                "eventname": "APItrix",
+                "fromtime": "11:00 AM",
+                "totime": "1:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "4",
+                "eventname": "Test your farads",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "6",
+                "eventname": "Build 'n Thrill",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "8",
+                "eventname": "Truth vs Pseudo Truth",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "10",
+                "eventname": "Alchemy adept",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "12",
+                "eventname": "Sherlock",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "14",
+                "eventname": "Mortal Kombat",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            }
+        ]
+    }
+    
+]

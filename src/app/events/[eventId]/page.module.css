@@ -1,0 +1,9 @@
+.main {
+    width: 100vw;
+    margin-top: 10vh;
+    min-height: 80vh;
+}
+
+@media screen and (max-width) {
+    
+}
