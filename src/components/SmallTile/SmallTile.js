@@ -1,8 +1,11 @@
-import styles from './smalltile.module.css'
+// Importing default modules
 import Image from 'next/image'
 import Link from 'next/link';
-function SmallTile({ workshopName, imageLocation, detailsPage }) {
 
+// Importing stylesheets
+import styles from './smalltile.module.css'
+
+function SmallTile({ workshopName, imageLocation, detailsPage }) {
     return <>
         <Link href={"/workshops/"+detailsPage}>
             <main className={styles.container}>
