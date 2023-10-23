@@ -274,11 +274,11 @@ const Page = () => {
                                 <section><label>Enter your branch name: </label>
                                     <input placeholder="Your branch name" name="branch" type="text" onChange={handleChange} />
                                 </section>
-                                <section><label>Enter your mobile number:</label>
-                                    <input placeholder="Your mobile number" name="phnno" type="tel" onChange={handleChange} />
+                                <section><label>Enter your WhatsApp number:</label>
+                                    <input placeholder="Your WhatsApp number" name="phno" type="tel" onChange={handleChange} />
                                 </section>
                                 <section><label>Enter your personal mail id:</label>
-                                    <input placeholder="Your personal mail id" name="email" type="email" onChange={handleChange} />
+                                    <input placeholder="Your personal mail id" name="pmail" type="email" onChange={handleChange} />
                                 </section>
                                 <section>
                                     <label>Which campus are you from ?</label>
