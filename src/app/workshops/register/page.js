@@ -60,7 +60,8 @@ const Page = () => {
     const [error, setError] = useState(null)
     const [status, updateStatus] = useState({
         exist: false,
-        payment: "no"
+        payment: "no",
+        event: "no"
     })
 
     const [validAuthToken, updateValidAuthToken] = useState(null)
@@ -98,7 +99,7 @@ const Page = () => {
         }
         // console.log(values, notEmpty);
         if (empty === true) {
-            const url = `https://daksh.sastra.edu/registration/workshops/register?token=${userDetails.token}&wname=${workshopDetail.workshopName}&pmail=${values.pmail}&phno=${values.phno}&campus=${values.campus}&hod=${values.hod}&yos=${values.yos}&branch=${values.branch}&txnid=${values.transactionid}&through=${values.through}`;
+            const url = `https://daksh.sastra.edu/registration/workshops/register?token=${userDetails.token}&wname=${workshopDetail.workshopId}&pmail=${values.pmail}&phno=${values.phno}&campus=${values.campus}&hod=${values.hod}&yos=${values.yos}&branch=${values.branch}&txnid=${values.transactionid}&through=${values.through}`;
             // console.log("Sending request")
             await fetch(url)
                 .then((response) => {
@@ -192,7 +193,7 @@ const Page = () => {
     }
 
     const fetchPaymentDetails = async (uid) => {
-        const validURL = `https://daksh.sastra.edu/registration/workshops/getuser?uid=${uid}`;
+        const validURL = `https://daksh.sastra.edu/registration/workshops/getuser?uid=${uid}&wname=${workshopDetail.workshopId}`;
         await fetch(validURL).then((response) => {
             response.json().then((res) => {
                 if (response.status === 200) {
@@ -200,7 +201,7 @@ const Page = () => {
                     if (res.exist) {
                         // console.log("success")
                         // alert('Success: Registration submitted successfully.');
-                        updateStatus({ ...status, payment: res.payment, exist: res.exist })
+                        updateStatus({ ...status, payment: res.payment, exist: res.exist, event: res.event })
                     }
                 }
             })
@@ -232,10 +233,10 @@ const Page = () => {
             <Nav />
             <div className={styles.register_container}>
                 {validAuthToken !== null ?
-                    status.exist ?
+                    status.exist && status.event === workshopDetail.workshopId ?
                         <div className={styles.afteruipage}>
                             <h2>Welcome back, {userDetails.fullname}</h2>
-                            <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{ color: 'orange' }}>HALF PAID</h3> : <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
+                            <h3>Your payment status: {status.payment === "full" ? <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
                             {status.payment === "full" ?
                                 <h3>Your registration is successful!</h3>
                                 :
