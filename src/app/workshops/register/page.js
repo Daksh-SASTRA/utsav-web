@@ -62,7 +62,7 @@ const Page = () => {
         exist: false,
         payment: "no"
     })
-    
+
     const [validAuthToken, updateValidAuthToken] = useState(null)
 
     const [userDetails, setUserDetails] = useState({
@@ -237,7 +237,7 @@ const Page = () => {
                             <h2>Welcome back, {userDetails.fullname}</h2>
                             <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{ color: 'orange' }}>HALF PAID</h3> : <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
                             {status.payment === "full" ?
-                                <h3>Your T-Shirt will be delivered soon!</h3>
+                                <h3>Your registration is successful!</h3>
                                 :
                                 <h3>Kindly Pay the full amount!</h3>
                             }
