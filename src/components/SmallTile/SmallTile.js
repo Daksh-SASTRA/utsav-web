@@ -7,7 +7,7 @@ import styles from './smalltile.module.css'
 
 function SmallTile({ workshopName, imageLocation, detailsPage }) {
     return <>
-        <Link href={"/workshops/"+detailsPage}>
+        <Link href={"/workshops/" + detailsPage}>
             <main className={styles.container}>
                 <div className={styles.logo}>
                     <Image src={imageLocation} width={200} height={200} alt={workshopName} />

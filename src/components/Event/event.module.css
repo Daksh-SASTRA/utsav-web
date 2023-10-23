@@ -1,41 +1,41 @@
 .flexCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .econtainer {
-  padding: 10px;
-  width: 100%;
-  /* height:100vh; */
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}  
-
-.eventHeadingMain{
-  padding: 10px 0px;
-  margin:5px;
-  font-family: title, sans-serif;
-  font-size: 2.2rem;
-  color: white;
-  font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    /* height:100vh; */
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.eventCard{
+.eventHeadingMain {
+    padding: 10px 0px;
+    margin: 5px;
+    font-family: title, sans-serif;
+    font-size: 2.2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.eventCard {
     display: flex;
     justify-content: space-between;
-    align-items:flex-start;
-    gap:2rem;
-    padding:2% 10%;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2% 10%;
 }
 
 
 .eventImage {
     width: 50%;
     display: flex;
-    max-height:80vh;
+    max-height: 80vh;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -54,15 +54,15 @@
 
 .eventDesc {
     width: 50%;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     padding: 2%;
-    font-size:1.2rem;
+    font-size: 1.2rem;
 }
 
 .register_btn {
-    width:35%;
-    margin-top:5%;
+    width: 35%;
+    margin-top: 5%;
     border-radius: 50px;
     padding: 10px 35px;
     text-align: center;
@@ -72,12 +72,14 @@
 }
 
 @media screen and (max-width: 800px) {
-    .eventCard{
+    .eventCard {
         flex-direction: column;
-        align-items:center;
+        align-items: center;
     }
-    .eventImage,.eventDesc{
-        width:90%;
+
+    .eventImage,
+    .eventDesc {
+        width: 90%;
     }
 
 }

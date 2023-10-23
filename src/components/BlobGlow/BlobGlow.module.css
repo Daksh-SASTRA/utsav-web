@@ -2,9 +2,9 @@
     position: absolute;
     top: 0;
     left: 0;
-  }
-  
-  .first_blob {
+}
+
+.first_blob {
     width: 400px;
     height: 400px;
     z-index: -1;
@@ -15,41 +15,41 @@
     opacity: 0.5;
     filter: blur(70px);
     animation: first-blob-change infinite 30s ease-in-out;
-  }
-  
-  @keyframes first-blob-change {
+}
+
+@keyframes first-blob-change {
     0% {
-      top: 0;
-      left: 0;
-      background-image: url("/blobs/blob1.png");
+        top: 0;
+        left: 0;
+        background-image: url("/blobs/blob1.png");
     }
-  
+
     33% {
-      left: 40%;
-      top: 40%;
-      /* transform: translate(-50%, 50%); */
-      background-image: url("/blobs/blob2.png");
+        left: 40%;
+        top: 40%;
+        /* transform: translate(-50%, 50%); */
+        background-image: url("/blobs/blob2.png");
     }
-  
+
     66% {
-      left: 65%;
-      top: 25%;
-      /* transform: translate(-50%, 50%); */
-      background-image: url("/blobs/blob3.png");
+        left: 65%;
+        top: 25%;
+        /* transform: translate(-50%, 50%); */
+        background-image: url("/blobs/blob3.png");
     }
 
     100% {
-      top: 0;
-      left: 0;
-      background-image: url("/blobs/blob1.png");
+        top: 0;
+        left: 0;
+        background-image: url("/blobs/blob1.png");
     }
-  }
+}
 
 @media screen and (max-width: 700px) {
-  .first_blob {
-    width: 100px;
-    height: 100px;
-    opacity: 0.8;
-    filter: blur(30px);
-  }
+    .first_blob {
+        width: 100px;
+        height: 100px;
+        opacity: 0.8;
+        filter: blur(30px);
+    }
 }
