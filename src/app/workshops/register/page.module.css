@@ -1,0 +1,172 @@
+.register_container {
+    width: 100vw;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register_loginui {
+    width: 100%;
+    min-height: 80vh;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register_loginui > p {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.register_loginui > button {
+    width: max-content;
+    padding: 1rem 2rem;
+    border: 0;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    font-size: 24px;
+    transition: all 0.5s ease;
+    width: 30%;
+}
+
+.register_loginui > button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.register_form {
+    display: flex;
+    width: 80%;
+    padding: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    color: white;
+    /* margin-top: 120vh; */
+    /* border-radius: 20px; */
+    /* background-color: rgba(255, 255, 255, 0.20);
+    -webkit-backdrop-filter: blur(3.8px);
+    backdrop-filter: blur(3.8px);
+    box-shadow: 6px 9px 12px -3px rgba(0, 0, 0, 0.65); */
+}
+
+@media screen and (max-width: 850px) {
+    .register_form {
+        width: 80%;
+    }
+}
+
+.register_form section {
+    width: 45%;
+    color: white;
+}
+
+.radioboxdiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+}
+
+.radioboxdiv div {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+}
+
+.radioboxdiv input[type="radio"] {
+    margin: 0;
+    padding: 6px;
+    /* width: 10%; */
+    appearance: none;
+    border-radius: 50%;
+    width: 4px;
+    height: 4px;
+    /* margin-right: 4px; */
+    background-color: #8D4AD8;
+    border: 2px solid #8D4AD8;
+}
+
+.radioboxdiv div input:hover {
+    cursor: pointer;
+}
+
+.radioboxdiv [type="radio"]:checked {
+    border: 2px solid white;
+    /* box-shadow: 0 0 0 3px orange; */
+}
+
+#throughhearing {
+    /* border: 2px solid red; */
+    width: 94%;
+}
+
+#throughhearing div {
+    width: 100%;
+}
+
+.register_form label {
+    width: 100%;
+    text-align: left;
+}
+
+.register_form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 0px;
+    border-radius: 8px;
+}
+
+.qrcodesection {
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 4px;
+}
+
+.qrcodesection label {
+    text-align: center;
+}
+
+.qrcodesection>input {
+    width: 250px;
+}
+
+.register__btn__div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register__btn {
+    /* margin-top: 32px; */
+    padding: 10px 30px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    background-color: white;
+    color: black;
+    /* animation: glow 8s linear infinite; */
+    /* background-image: var(--hover-gradient); */
+    border-radius: 5px;
+    /* background-size: 400%; */
+    border-style: hidden;
+    cursor: pointer;
+}
+
+.register__btn:hover {
+    background-color: #8D4AD8;
+    color: white;
+}
