@@ -6,7 +6,7 @@
     align-items: center;
     cursor: pointer;
     flex-direction: column;
-    height: 40vh;
+    height: 50vh;
 }
 
 .workshopName {
@@ -32,6 +32,7 @@
         width: 90vw;
         padding: 1rem;
         justify-content: space-evenly;
+        height: max-content;
         /* height: 50vh; */
     }
 }
