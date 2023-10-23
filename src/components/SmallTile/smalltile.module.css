@@ -1,11 +1,12 @@
 .container {
-    border-radius: 1.5625rem;
+    border-radius: 2rem;
     border: 2px solid #FFF;
-    padding: 2rem;
+    padding: 1.25rem;
     display: flex;
     align-items: center;
     cursor: pointer;
     flex-direction: column;
+    height: 50vh;
 }
 
 .workshopName {
@@ -19,16 +20,19 @@
         font-size: 1.6rem;
     }
     .container{
-        padding: 1.8rem;
+        padding: 1.2rem;
     }
 }
 
 @media screen and (max-width: 800px) {
     .workshopName{
         font-size: 1.4rem;
-
     }
     .container{
-        padding: 1.5rem;
+        width: 90vw;
+        padding: 1rem;
+        justify-content: space-evenly;
+        height: max-content;
+        /* height: 50vh; */
     }
 }

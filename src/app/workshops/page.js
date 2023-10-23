@@ -1,10 +1,18 @@
+// Importing default modules
 import Head from 'next/head'
+
+// Importing stylesheets
 import styles from './page.module.css'
+
+// Importing components
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Nav from '@/components/Nav/Nav';
 import SmallTile from '@/components/SmallTile/SmallTile';
-import workshops from '@/data/workshops.json';
 import Footer from '@/components/Footer/Footer';
+
+// Importing data elements
+import WorkshopsData from '@/components/config/WorkshopsData.json'
+
 function Workshops() {
     return <>
         <Head>
@@ -17,9 +25,9 @@ function Workshops() {
             <Nav />
             <h1 className={styles.heading}>Workshops</h1>
             <div className={styles.tilecontainer}>
-            {workshops.map((item, i)=>(
-                <SmallTile key={i} workshopName={item.workshopName} imageLocation={item.image_url} detailsPage={i} />
-            )) }
+                {WorkshopsData.map((item, i) => (
+                    <SmallTile key={i} workshopName={item.workshopName} imageLocation={item.image_url} detailsPage={i} />
+                ))}
             </div>
         </main>
         <Footer />

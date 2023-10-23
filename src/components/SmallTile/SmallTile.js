@@ -1,10 +1,13 @@
-import styles from './smalltile.module.css'
+// Importing default modules
 import Image from 'next/image'
 import Link from 'next/link';
-function SmallTile({ workshopName, imageLocation, detailsPage }) {
 
+// Importing stylesheets
+import styles from './smalltile.module.css'
+
+function SmallTile({ workshopName, imageLocation, detailsPage }) {
     return <>
-        <Link href={"/workshops/"+detailsPage}>
+        <Link href={"/workshops/" + detailsPage}>
             <main className={styles.container}>
                 <div className={styles.logo}>
                     <Image src={imageLocation} width={200} height={200} alt={workshopName} />

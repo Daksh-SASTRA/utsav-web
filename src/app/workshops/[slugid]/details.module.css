@@ -2,19 +2,21 @@
     width: 100vw;
     margin-top: 10vh;
     font-family: 'Poppins', sans-serif;
-
 }
-.back{
+
+.back {
     transform: rotate(-90deg);
     position: absolute;
     top: 115%;
     cursor: pointer;
     right: calc(50vw - 30px);
 }
-.group{
+
+.group {
     position: relative;
     margin-bottom: 2rem;
 }
+
 .event_details {
     display: grid;
     margin: 0rem 3rem 3rem  1rem;
@@ -33,7 +35,7 @@
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 2.6rem;
 }
 
 .caption {
@@ -44,13 +46,11 @@
 .company {
     font-size: 1rem;
     font-weight: 200;
-
 }
 
 .description {
     font-size: 18px;
     text-align: justify;
-/*     text-align-last: center */
 }
 
 .tagline {
@@ -82,15 +82,15 @@
 }
 
 .register>button {
-    width: max-content;
+    /* width: max-content; */
     padding: 0.85rem 1.5rem;
     border: 0;
     background-color: rgba(255, 255, 255, 0.585);
     color: black;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: all 0.5s ease;
-    /* width: 100%; */
+    width: 20%;
 }
 
 .register>button:hover {
@@ -115,9 +115,11 @@
         font-size: 2.5rem;
 
     }
-    .back{
+
+    .back {
         top: 100%;
     }
+
     .title {
         font-size: 2rem;
     }

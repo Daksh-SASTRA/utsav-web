@@ -73,7 +73,7 @@ function MerchForm() {
     const handleChange = (e) => {
         e.preventDefault;
         setValues({ ...values, [e.target.name]: e.target.value });
-        console.log(values);
+        // console.log(values);
     }
 
     const handleSubmit = async (e) => {

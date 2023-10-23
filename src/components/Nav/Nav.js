@@ -9,46 +9,46 @@ import Image from "next/image";
 
 
 function Nav() {
-	// const [navbarBg, setNavbarBg] = useState(false);
+    // const [navbarBg, setNavbarBg] = useState(false);
 
-	//navbar scroll changeBackground function
-	const changeBackground = () => {
-		if (window.scrollY >= 50) {
-			setNavbarBg(true);
-		} else {
-			setNavbarBg(false);
-		}
-	};
+    //navbar scroll changeBackground function
+    const changeBackground = () => {
+        if (window.scrollY >= 50) {
+            setNavbarBg(true);
+        } else {
+            setNavbarBg(false);
+        }
+    };
 
-	// useEffect(() => {
-	// 	window.addEventListener("scroll", changeBackground);
-	// 	return () => {
-	// 		window.removeEventListener("scroll", changeBackground);
-	// 	};
-	// }, []);
+    // useEffect(() => {
+    // 	window.addEventListener("scroll", changeBackground);
+    // 	return () => {
+    // 		window.removeEventListener("scroll", changeBackground);
+    // 	};
+    // }, []);
 
-	const [navmenu, menuToggle] = useState(false);
-	var hnav = (
-		<div id={navmenu ? styles.vnav : styles.hnav}>
-			{/* <div
-				className={styles.navbutton}
-				data-aos="fade-down"
-				data-aos-delay="50"
-			>
-				<Link href="/schedule">
-					<a className={styles.navlink}>Schedule</a>
-				</Link>
-			</div> */}
-			<div
-				className={styles.navbutton}
-				data-aos="fade-down"
-				data-aos-delay="200"
-			>
-				<Link href="/merch" legacyBehavior>
-					<a className={styles.navlink}>Merchandise</a>
-				</Link>
-			</div>
-			{/* <div
+    const [navmenu, menuToggle] = useState(false);
+    var hnav = (
+        <div id={navmenu ? styles.vnav : styles.hnav}>
+            <div
+                className={styles.navbutton}
+                data-aos="fade-down"
+                data-aos-delay="50"
+            >
+                <Link href="/schedule" legacyBehavior>
+                    <a className={styles.navlink}>Schedule</a>
+                </Link>
+            </div>
+            <div
+                className={styles.navbutton}
+                data-aos="fade-down"
+                data-aos-delay="200"
+            >
+                <Link href="/merch" legacyBehavior>
+                    <a className={styles.navlink}>Merchandise</a>
+                </Link>
+            </div>
+            {/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="600"
@@ -75,7 +75,7 @@ function Nav() {
 					<a className={styles.navlink}>Teams</a>
 				</Link>
 			</div> */}
-			{/* <div
+            {/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="600"
@@ -84,7 +84,7 @@ function Nav() {
 					<a className={styles.navlink}>Podcasts</a>
 				</Link>
 			</div> */}
-			{/* <div
+            {/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="600"
@@ -93,7 +93,7 @@ function Nav() {
 					<a href="https://daksh-blog.medium.com/" target="blank" className={styles.navlink}>Blog</a>
 				</Link>
 			</div> */}
-			{/* <div
+            {/* <div
 				className={styles.navbutton}
 				data-aos="fade-down"
 				data-aos-delay="600"
@@ -102,7 +102,7 @@ function Nav() {
 					<a className={styles.navlink}>Contact</a>
 				</Link>
 			</div> */}
-			{/* <div
+            {/* <div
 				className={styles.navbutton}
 				id={styles.chatboxbutton}
 				data-aos="fade-down"
@@ -112,47 +112,47 @@ function Nav() {
 					<a className={styles.navlink}>Registration</a>
 				</Link>
 			</div> */}
-		</div>
-	);
+        </div>
+    );
 
-	return (
-		// <nav id={styles.navbar} className={navbarBg ? styles.active : ""}>
-		<nav id={styles.new_navbar}>
-			<Link passHref href="/">
-			<div>
-			<Image 
-					width={120} 
-					height={50}
-					id={styles.logo}
-					src="/daksh_2024.png"
-					data-aos="fade-down"
-					data-aos-delay="200"
-					alt="Logo-Daksh"
-				/>
-			</div>
-			</Link>
-			{hnav}
-			{navmenu ? (
-				<div
-					id={styles.menu}
-					onClick={() => menuToggle(!navmenu)}
-					data-aos="fade-down"
-					data-aos-delay="200"
-				>
-					<MdClose size={35} />
-				</div>
-			) : (
-				<div
-					id={styles.menu}
-					onClick={() => menuToggle(!navmenu)}
-					data-aos="fade-down"
-					data-aos-delay="200"
-				>
-					<IoMenu size={35} />
-				</div>
-			)}
-		</nav>
-	);
+    return (
+        // <nav id={styles.navbar} className={navbarBg ? styles.active : ""}>
+        <nav id={styles.new_navbar}>
+            <Link passHref href="/">
+                <div>
+                    <Image
+                        width={120}
+                        height={50}
+                        id={styles.logo}
+                        src="/daksh_2024.png"
+                        data-aos="fade-down"
+                        data-aos-delay="200"
+                        alt="Logo-Daksh"
+                    />
+                </div>
+            </Link>
+            {hnav}
+            {navmenu ? (
+                <div
+                    id={styles.menu}
+                    onClick={() => menuToggle(!navmenu)}
+                    data-aos="fade-down"
+                    data-aos-delay="200"
+                >
+                    <MdClose size={35} />
+                </div>
+            ) : (
+                <div
+                    id={styles.menu}
+                    onClick={() => menuToggle(!navmenu)}
+                    data-aos="fade-down"
+                    data-aos-delay="200"
+                >
+                    <IoMenu size={35} />
+                </div>
+            )}
+        </nav>
+    );
 }
 
 export default Nav;

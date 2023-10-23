@@ -1,12 +1,21 @@
 'use client';
-import workshops from '@/data/workshops.json';
+
+// Importing default modules
+import { useRouter } from 'next/navigation';
 import Head from 'next/head';
-import BlobGlow from '@/components/BlobGlow/BlobGlow';
+
+// Importing stylesheets
+import styles from "./details.module.css";
+
+// Importing components
 import Nav from '@/components/Nav/Nav';
 import Image from 'next/image';
-import styles from "./details.module.css";
+import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Footer from '@/components/Footer/Footer';
-import { useRouter } from 'next/navigation';
+
+// Importing data elements
+import WorkshopsData from '@/components/config/WorkshopsData.json';
+
 export default function Page(params) {
   const workshopId = params.params.slugid;
   const workshopEvent = workshops[workshopId];
