@@ -18,7 +18,7 @@ import WorkshopsData from '@/components/config/WorkshopsData.json';
 
 export default function Page(params) {
   const workshopId = params.params.slugid;
-  const workshopEvent = workshops[workshopId];
+  const workshopEvent = WorkshopsData[workshopId];
   const router = useRouter();
   function goBack() {
     router.push('/workshops')
