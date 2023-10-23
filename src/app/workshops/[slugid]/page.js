@@ -44,6 +44,6 @@ export default function Page(params) {
         </span>
       </div>
     </main>
-    <Footer />
+    {/* <Footer /> */}
   </>
 }
