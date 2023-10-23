@@ -2,6 +2,7 @@
     {
         "eventId": "1",
         "title": "Te(X)Scape",
+        "dept":"SoC",
         "tagline": "Solve ! Complete! Conquer!",
         "caption": "Ready to take on the journey of riddles and mysteries ?Join us in a coding showdown and unleash your inner problem solver.Let your smallest lines create big solutions.Get crowned as the Escape room Champion peeps ..Solve! Complete! Conquer!",
         "desc": "Things should be fine in the end, and if it isn't, it's not the end right ? Fix the syntax and make your code work fine. Move your token through Monopoly with currency,by navigating the riddles .And finally decipher the hidden codes and hurray ! get ur key to  escape the room.",
@@ -11,6 +12,7 @@
     {
         "eventId": "2",
         "title": "APItrix",
+        "dept": "SoC",
         "tagline": "",
         "caption":"One man's problem is another man's opportunity. This is yours, up for the challenge?",
         "desc": "Join the APIvengers Assemble Challenge - Where Backend Mastery Meets Real-World Problem Solving! Choose from Multiple Backend Architectures and APIs and Compete for the Title of APIvenger Champion!",
@@ -20,6 +22,7 @@
     {
         "eventId": "3",
         "title": "Knowledge knockout",
+        "dept": "SEEE",
         "tagline":"Raise, Risk, Race",
         "desc": "Unleash your daring bets, embrace the exhilarating risk-reward dynamic, and outwit your rivals in this pulse-pounding, intellectual challenge",
         "poster": "/events/country-con.png",
@@ -28,6 +31,7 @@
     {
         "eventId": "4",
         "title": "Test your farads",
+        "dept": "SEEE",
         "tagline": "Lumos!!!!!!!",
         "desc": "Embark on an illuminating adventure with us! Delve into the fascinating realm of luminosity as you unravel captivating mysteries, master the art of LDRs, LEDs, and NPN wizardry, and emerge as a radiant champion. Join us on a path to victory through brilliance, and discovery!",
         "poster": "/events/country-con.png",
@@ -36,6 +40,7 @@
     {
         "eventId": "5",
         "title": "Gear up!",
+        "dept": "SoME",
         "tagline": "",
         "caption":"It's said that one machine can do the work of fifty ordinary men, but no machine can do the work of one extraordinary man. It starts with you.",
         "desc": "All the talented trios out there, how big is your tool kit and how fast is your knowledge on fluids ? Let's find out at the grand stage of Utsav!",
@@ -45,6 +50,7 @@
     {
         "eventId": "6",
         "title": "Build 'n Thrill",
+        "dept": "SoME",
         "tagline": "Fix,Flip,Win",
         "desc": "Dive into the chaos of shuffled cards.With a bang,knock and twist see the buildings rise right in front of your eyes.Put on your thinking caps,gather your team of three and conquer the challenge to claim victory!",
         "caption": "Unravel the hidden gears of mechanical engineering: Decode,Build and Triumph!",
@@ -54,6 +60,7 @@
     {
         "eventId": "7",
         "title": "Bingo maniacs",
+        "dept": "SoCE",
         "tagline": "SOLVE .CREATE.CONNECT.",
         "desc": "BINGO..  Building Wizards!!team up and get ready to dive in challenging your wit and teamwork. Discover the truth, unravel the lies, and conquer the quiz! ",
         "caption":"Unravel the Mysteries of Civil Engineering: Where Riddles Lead to Brain-Bending Questions!",
@@ -63,6 +70,7 @@
     {
         "eventId": "8",
         "title": "Truth vs Pseudo Truth",
+        "dept": "SoCE",
         "tagline": "Truth or lie, we only dare you to try!",
         "caption":"Truth and lies are two sides of the same coin. People flip a coin based on luck. But all you have to do is know your facts, the right side will reveal itself",
         "desc": "Gear up and embrace the thrill of competition by charging your brains to flow through the rivers of riddles and reach the place where you have to find the truth in the pool of lies to conquer the world of civil.",
@@ -72,6 +80,7 @@
     {
         "eventId": "9",
         "title": "Spot the spoof",
+        "dept": "SCBT",
         "tagline": "Decode the deception in 60 minutes",
         "desc": "Embark on an epic quest where truth hides in the shadows and deception wears a clever disguise! Gather your friends for an hour of mystery and intrigue. Can you spot the imposters? Or will they outsmart your keenest instincts? Only the craftiest survive in this enigmatic game of wits!",
         "caption": "Step-in spot- out, unveil and reveal the  \"delude Liege\". Sharpen your deduction skills, forge trust, and outwit imposters in this thrilling challenge of deduction and teamwork. Join the adventure!",
@@ -81,6 +90,7 @@
     {
         "eventId": "10",
         "title": "Alchemy adept",
+        "dept": "SCBT",
         "tagline": "Connecting objects, crafting solutions",
         "caption":"Unite Ideas, Ignite Innovations, Where Collaboration Meets Creativity!",
         "desc": "Dive into the Challenge: Where Imagination Meets Ingenuity! Join us in integrating innovations, where creativity knows no bounds. Decode the puzzles, forge unexpected connections, and engineer groundbreaking solutions. Are you ready to redefine possibilities?",
@@ -90,6 +100,7 @@
     {
         "eventId": "11",
         "title": "Cash Royale",
+        "dept": "Technotainment",
         "tagline": "Raise, Risk, Race",
         "desc": "",
         "poster": "/events/country-con.png",
@@ -98,6 +109,7 @@
     {
         "eventId": "12",
         "title": "Sherlock",
+        "dept": "Technotainment",
         "tagline": "",
         "desc": "",
         "poster": "/events/country-con.png",
@@ -106,6 +118,7 @@
     {
         "eventId": "13",
         "title": "F1FA",
+        "dept": "Gaming",
         "tagline": "",
         "desc": "",
         "poster": "/events/country-con.png",
@@ -114,6 +127,7 @@
     {
         "eventId": "14",
         "title": "Mortal Kombat",
+        "dept": "Gaming",
         "tagline": "",
         "caption":"Feasting on Fatalities is Shao Khan's fun-time. What's yours?",
         "desc": "Team Gaming has arrived with a banger in its hut- ravishing realms are waiting for remarkable gamers like the one reading this poster- let's have fun mate!See you at the battlefield!",

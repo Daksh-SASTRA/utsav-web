@@ -35,6 +35,15 @@ function Nav() {
                 data-aos="fade-down"
                 data-aos-delay="50"
             >
+                <Link href="/events" legacyBehavior>
+                    <a className={styles.navlink}>Events</a>
+                </Link>
+            </div>
+            <div
+                className={styles.navbutton}
+                data-aos="fade-down"
+                data-aos-delay="50"
+            >
                 <Link href="/schedule" legacyBehavior>
                     <a className={styles.navlink}>Schedule</a>
                 </Link>
