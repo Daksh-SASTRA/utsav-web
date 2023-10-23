@@ -1,0 +1,151 @@
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scontainer {
+    padding: 10px;
+    margin-top: 10vh;
+    width: 100%;
+    /* height:100vh; */
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scheduleHeadingMain {
+    padding: 10px 0px;
+    margin: 5px;
+    /*   font-family: 'Poppins', sans-serif; */
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* styles for tabs */
+.daybuttons {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    justify-content: space-between;
+}
+
+.daybuttons__button {
+    margin-top:2%;
+    display: block;
+    opacity: 50%;
+    position: relative;
+    text-align: center;
+    padding: 10px 30px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 36px;
+    /* transition: all 0.5s ease-in-out; */
+    border-radius: 40px;
+    border: none;
+    margin-right: 20px;
+    opacity: 50%;
+}
+
+.daybuttons__buttonactive {
+    margin-top:2%;
+    display: block;
+    opacity: 50%;
+    position: relative;
+    text-align: center;
+    padding: 10px 30px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 36px;
+    /* transition: all 0.5s ease-in-out; */
+    border-radius: 40px;
+    border: none;
+    margin-right: 20px;
+    opacity: 100%;
+}
+
+/* styles for schedule container */
+
+.eventsContainer {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    padding: 3%;
+}
+
+/* .scheduleContainer::-webkit-scrollbar {
+    display: none;
+} */
+
+
+.eventContainer {
+    padding: 25px 20px;
+    margin: 1%;
+    background: #ECDCFF;
+    color: black;
+    width: 30%;
+    /* border:none; */
+    border-radius: 27px;
+}
+
+.eventName {
+    font-size: 1.4rem;
+    margin-bottom: 5%;
+    color: black;
+}
+
+@media screen and (max-width: 800px) {
+    .scontainer {
+        margin-top: 3vh;
+    }
+
+    .scheduleContainer {
+        width: 80%;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border: 2px white solid;
+        border-radius: 20px;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding: 6% 3%;
+    }
+
+    .eventContainer {
+        width: 85%;
+        margin: 4% 0;
+        padding: 20px 20px;
+    }
+
+    .daybuttons {
+        margin-top:1%;
+        justify-content:space-around;
+        align-items:center;
+    }
+
+    .daybuttons__button{
+        padding: 7px 20px;
+        font-size: 15px;
+
+    }
+    .daybuttons__buttonactive {
+        padding: 7px 20px;
+        font-size: 15px;
+
+    }
+}
