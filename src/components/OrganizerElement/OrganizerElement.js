@@ -217,7 +217,7 @@ const OrganizerElement = () => {
                             :
                             <h3>Kindly Pay the full amount!</h3>
                         } */}
-                        <h3>You have been registered as an <i>{status.organizer}</i></h3>
+                        <h3>You have been registered as <i>{status.organizer}</i></h3>
                     </div>
                     :
                     <form onSubmit={handleSubmit} className={styles.merch_form}>
