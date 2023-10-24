@@ -1,0 +1,13 @@
+.btnClose {
+    position: absolute;
+    z-index: 1001;
+    border-radius: 75px 0px 0px 75px;
+    background-color: #bb86fc;
+    width: 55px;
+    height: 200px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    right: 0;
+}

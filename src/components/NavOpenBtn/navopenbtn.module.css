@@ -1,0 +1,11 @@
+.btnOpen {
+    position: absolute;
+    border-radius: 0px 75px 75px 0px;
+    background-color: #bb86fc;
+    width: 55px;
+    height: 200px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
