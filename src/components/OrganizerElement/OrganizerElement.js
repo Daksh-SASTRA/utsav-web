@@ -1,16 +1,10 @@
-"use client"
+'use client'
 
-// Importing NextJS/ReactJS modules
-import { useEffect, useState } from 'react'
-import Image from 'next/image';
+// Importing default modules
+import { useState, useEffect } from 'react';
 
 // Importing stylesheets
-import styles from './merch.module.css'
-import MerchItem from "./Merchandise";
-
-// Importing assets
-import tshirtf from '../../../public/shirtpreview/Front.webp'
-import tshirtb from '../../../public/shirtpreview/Back.webp'
+import styles from './oe.module.css'
 
 // Importing FireBase
 import { initializeApp } from 'firebase/app';
@@ -33,27 +27,16 @@ const firebaseConfig = {
     measurementId: "G-D3JB5MVR4E"
 };
 
-function MerchForm() {
+const OrganizerElement = () => {
 
     const app = initializeApp(firebaseConfig);
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
 
-    const tshirt = [tshirtf, tshirtb]
-
     const [values, setValues] = useState({
-        phnno: "",
-        gender: "",
-        campus: "",
-        yos: "",
-        branch: "",
-        size: "",
-        hod: "",
-        transactionid: ""
+        team: ""
     })
 
-    // const [index, updateIndex] = useState(0)
-    // const [notEmpty, updateNotEmpty] = useState(true)
     const [error, setError] = useState(null)
     const [status, updateStatus] = useState({
         exist: false,
@@ -95,7 +78,7 @@ function MerchForm() {
         }
         // console.log(values, notEmpty);
         if (empty === true) {
-            const url = `https://daksh.sastra.edu/registration/merch/register?token=${userDetails.token}&name=${values.stdname}&phno=${values.phnno}&gender=${values.gender}&campus=${values.campus}&yos=${values.yos}&branch=${values.branch}&tsize=${values.size}&hod=${values.hod}&txnid=${values.transactionid}`;
+            const url = `https://daksh.sastra.edu/registration/organizer/register?token=${userDetails.token}&team=${values.team}`;
             // console.log("Sending request")
             await fetch(url)
                 .then((response) => {
@@ -114,7 +97,7 @@ function MerchForm() {
                                     theme: "colored",
                                 });
                                 signOut(auth).then(() => {
-                                    setUserDetails({...userDetails, email: null, token: null, fullname: null, regno: null, userid: null});
+                                    setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
                                     updateValidAuthToken(null);
                                     toast.success("Payment under verification!", {
                                         position: "top-right",
@@ -189,15 +172,15 @@ function MerchForm() {
     }
 
     const fetchPaymentDetails = async (uid) => {
-        const validURL = `https://daksh.sastra.edu/registration/merch/getuser?uid=${uid}`;
+        const validURL = `https://daksh.sastra.edu/registration/workshops/getuser?uid=${uid}`;
         await fetch(validURL).then((response) => {
             response.json().then((res) => {
-                if (response.status === 200) {
+                if (response.status === 200) {  
                     // console.log(res)
                     if (res.exist) {
                         // console.log("success")
                         // alert('Success: Registration submitted successfully.');
-                        updateStatus({ ...status, delivered: res.delivered, payment: res.payment, exist: res.exist })
+                        updateStatus({ ...status, payment: res.payment, exist: res.exist })
                     }
                 }
             })
@@ -224,22 +207,21 @@ function MerchForm() {
     }, [error])
 
     return (
-        <div className={styles.merch_container}>
-            <MerchItem merchName={"TSHIRT"} imageLink={tshirt} shoppingLink="/merch/tshirt" />
+        <div className={styles.organizer_container}>
             {validAuthToken !== null ?
                 status.exist ?
                     <div className={styles.afteruipage}>
                         <h2>Welcome back, {userDetails.fullname}</h2>
-                        <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{ color: 'orange' }}>HALF PAID</h3> : <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
-                        {status.payment === "full" ?
+                        {/* <h3>Your payment status: {status.payment !== "no" ? status.payment == "half" ? <h3 style={{ color: 'orange' }}>HALF PAID</h3> : <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3> */}
+                        {/* {status.payment === "full" ?
                             <h3>Your T-Shirt will be delivered soon!</h3>
                             :
-                            <h3>Merchandise team will get back to you after complete verification.</h3>
-                        }
+                            <h3>Kindly Pay the full amount!</h3>
+                        } */}
                     </div>
                     :
                     <form onSubmit={handleSubmit} className={styles.merch_form}>
-                        <h2>Get your T-Shirt by filling up the following details</h2>
+                        <h2>Register your name under the corresponding teams you are in!</h2>
                         <section><label>Name: </label>
                             <input placeholder={userDetails.fullname} name="studname" type="text" disabled />
                         </section>
@@ -249,7 +231,7 @@ function MerchForm() {
                         <section><label>SASTRA Mail ID:</label>
                             <input placeholder={userDetails.email} name="email" type="email" disabled />
                         </section>
-                        <section>
+                        {/* <section>
                             <label>Gender:</label>
                             <div className={styles.radioboxdiv}>
                                 <div>
@@ -261,8 +243,8 @@ function MerchForm() {
                                     <label htmlFor="Female">Female</label>
                                 </div>
                             </div>
-                        </section>
-                        <section>
+                        </section> */}
+                        {/* <section>
                             <label>Which campus are you from ?</label>
                             <div className={styles.radioboxdiv}>
                                 <div>
@@ -274,11 +256,11 @@ function MerchForm() {
                                     <label htmlFor="Kumbakonam">Kumbakonam</label>
                                 </div>
                             </div>
-                        </section>
-                        <section><label>Enter your mobile number:</label>
+                        </section> */}
+                        {/* <section><label>Enter your mobile number:</label>
                             <input placeholder="Your mobile number" name="phnno" type="tel" onChange={handleChange} />
-                        </section>
-                        <section>
+                        </section> */}
+                        {/* <section>
                             <label>Enter your year of study:</label>
                             <div className={styles.radioboxdiv}>
                                 <div>
@@ -298,8 +280,8 @@ function MerchForm() {
                                     <label htmlFor="4">4</label>
                                 </div>
                             </div>
-                        </section>
-                        <section><label>Enter your branch name: </label>
+                        </section> */}
+                        {/* <section><label>Enter your branch name: </label>
                             <input placeholder="Your branch name" name="branch" type="text" onChange={handleChange} />
                         </section>
                         <section>
@@ -314,46 +296,94 @@ function MerchForm() {
                                     <label htmlFor="Dayscolar">Dayscholar</label>
                                 </div>
                             </div>
-                        </section>
+                        </section> */}
                         <section>
-                            <label>Enter your T-Shirt size:</label>
-                            <div className={`${styles.radioboxdiv} ${styles.tshirtradio}`}>
+                            <label>Enter your team name [if you are in multiple teams, kindly chose the one under which you are getting a tshirt]:</label>
+                            <div className={`${styles.radioboxdiv} ${styles.teamsradio}`}>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="XS" />
-                                    <label htmlFor="XS">XS</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="DDT" />
+                                    <label htmlFor="DDT">DDT</label>
                                 </div>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="S" />
-                                    <label htmlFor="S">S</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="DWT" />
+                                    <label htmlFor="DWT">DWT</label>
                                 </div>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="M" />
-                                    <label htmlFor="M">M</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="DARTS" />
+                                    <label htmlFor="DARTS">DARTS</label>
                                 </div>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="L" />
-                                    <label htmlFor="L">L</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="CM" />
+                                    <label htmlFor="CM">CM</label>
                                 </div>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="XL" />
-                                    <label htmlFor="XL">XL</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="POUT" />
+                                    <label htmlFor="POUT">POUT</label>
                                 </div>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="2XL" />
-                                    <label htmlFor="2XL">2XL</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="PR" />
+                                    <label htmlFor="PR">PR</label>
                                 </div>
                                 <div>
-                                    <input name="size" type="radio" onClick={handleChange} value="3XL" />
-                                    <label htmlFor="3XL">3XL</label>
+                                    <input name="team" type="radio" onClick={handleChange} value="DMT" />
+                                    <label htmlFor="DMT">DMT</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="GAMING" />
+                                    <label htmlFor="GAMING">GAMING</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="HOSTS" />
+                                    <label htmlFor="HOSTS">HOSTS</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="HOSPI" />
+                                    <label htmlFor="HOSPI">HOSPI</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="INFRA" />
+                                    <label htmlFor="INFRA">INFRA</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="OPCON" />
+                                    <label htmlFor="OPCON">OPCON</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="QM" />
+                                    <label htmlFor="QM">QM</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="SOC" />
+                                    <label htmlFor="SOC">SOC</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="SEEE" />
+                                    <label htmlFor="SEEE">SEEE</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="SCBT" />
+                                    <label htmlFor="SCBT">SCBT</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="SOME" />
+                                    <label htmlFor="SOME">SOME</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="SOCE" />
+                                    <label htmlFor="SOCE">SOCE</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="TECHNOTAINMENT" />
+                                    <label htmlFor="TECHNOTAINMENT">TECHNOTAINMENT</label>
                                 </div>
                             </div>
                         </section>
-                        <section className={styles.qrcodesection}>
+                        {/* <section className={styles.qrcodesection}>
                             <label>Pay ₹250 here</label>
                             <h4>saneesha293@okicici</h4>
                             <Image src='/payment.jpg' width={200} height={200} alt="QR Code for scanning" />
                             <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange} />
-                        </section>
+                        </section> */}
                         <div className={styles.register__btn__div}>
                             <button type="submit" className={styles.register__btn}>Submit</button>
                         </div>
@@ -368,4 +398,5 @@ function MerchForm() {
         </div>
     )
 }
-export default MerchForm;
+
+export default OrganizerElement
