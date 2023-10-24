@@ -172,7 +172,7 @@ const OrganizerElement = () => {
     }
 
     const fetchPaymentDetails = async (uid) => {
-        const validURL = `https://daksh.sastra.edu/registration/workshops/getuser?uid=${uid}`;
+        const validURL = `https://daksh.sastra.edu/registration/organizer/getuser?uid=${uid}`;
         await fetch(validURL).then((response) => {
             response.json().then((res) => {
                 if (response.status === 200) {  
