@@ -234,7 +234,7 @@ function MerchForm() {
                         {status.payment === "full" ?
                             <h3>Your T-Shirt will be delivered soon!</h3>
                             :
-                            <h3>Kindly Pay the full amount!</h3>
+                            <h3>Merchandise team will get back to you after complete verification.</h3>
                         }
                     </div>
                     :
