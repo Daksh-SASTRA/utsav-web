@@ -16,7 +16,7 @@ import WorkshopsData from '@/components/config/WorkshopsData.json';
 
 // Importing FireBase
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, signInWithRedirect } from "firebase/auth";
 
 //Importing Toastify - Notification
 import { ToastContainer, toast } from 'react-toastify';
@@ -147,7 +147,7 @@ const Page = () => {
     }
 
     const studentLogin = () => {
-        signInWithPopup(auth, provider)
+        signInWithRedirect(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
