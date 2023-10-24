@@ -114,7 +114,7 @@ function MerchForm() {
                                     theme: "colored",
                                 });
                                 signOut(auth).then(() => {
-                                    setUserDetails({...userDetails, email: null, token: null, fullname: null, regno: null, userid: null});
+                                    setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
                                     updateValidAuthToken(null);
                                     toast.success("Payment under verification!", {
                                         position: "top-right",
@@ -350,8 +350,8 @@ function MerchForm() {
                         </section>
                         <section className={styles.qrcodesection}>
                             <label>Pay ₹250 here</label>
-                            <h4>yvishnupriya866-1@okaxis</h4>
-                            <Image src='/payment2.jpg' width={200} height={200} alt="QR Code for scanning" />
+                            <h4>priyankabudivarthi-1@okicici</h4>
+                            <Image src='/payment3.jpg' width={200} height={200} alt="QR Code for scanning" />
                             <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange} />
                         </section>
                         <div className={styles.register__btn__div}>
