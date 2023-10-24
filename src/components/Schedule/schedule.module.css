@@ -76,16 +76,13 @@
 
 .scheduleContainer {
     width: 80%;
-    height: 62vh;
     min-height: 20vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
     border: 2px white solid;
     border-radius: 20px;
-    overflow: scroll;
-    overflow-x: hidden;
     padding: 3%;
 }
 
@@ -117,14 +114,12 @@
 
     .scheduleContainer {
         width: 80%;
-        height: 70vh;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: space-around;
         border: 2px white solid;
         border-radius: 20px;
-        overflow: scroll;
-        overflow-x: hidden;
         padding: 6% 3%;
     }
 

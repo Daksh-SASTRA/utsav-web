@@ -71,6 +71,26 @@
     background-color: white;
 }
 
+.linkpreview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.close_btn {
+    width: 10%;
+    margin: 2% 3%;
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+}
+
+
 @media screen and (max-width: 800px) {
     .eventCard {
         flex-direction: column;
@@ -81,5 +101,16 @@
     .eventDesc {
         width: 90%;
     }
+
+    .register_btn {
+        width:50%;
+    }
+    .close_btn {
+        width:30%;
+        margin:5%;
+    }
+    /* .linkpreview{
+        width:85%;
+    } */
 
 }
