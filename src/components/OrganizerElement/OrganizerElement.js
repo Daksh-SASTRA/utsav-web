@@ -40,8 +40,7 @@ const OrganizerElement = () => {
     const [error, setError] = useState(null)
     const [status, updateStatus] = useState({
         exist: false,
-        delivered: "no",
-        payment: "no"
+        organizer: "no"
     })
 
     const [validAuthToken, updateValidAuthToken] = useState(null)
@@ -180,7 +179,7 @@ const OrganizerElement = () => {
                     if (res.exist) {
                         // console.log("success")
                         // alert('Success: Registration submitted successfully.');
-                        updateStatus({ ...status, payment: res.payment, exist: res.exist })
+                        updateStatus({ ...status, organizer: res.organizer, exist: res.exist })
                     }
                 }
             })
@@ -218,6 +217,7 @@ const OrganizerElement = () => {
                             :
                             <h3>Kindly Pay the full amount!</h3>
                         } */}
+                        <h3>You have been registered as an <i>{status.organizer}</i></h3>
                     </div>
                     :
                     <form onSubmit={handleSubmit} className={styles.merch_form}>
