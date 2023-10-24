@@ -333,6 +333,14 @@ const OrganizerElement = () => {
                                     <label htmlFor="GAMING">GAMING</label>
                                 </div>
                                 <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="WORKSHOPS" />
+                                    <label htmlFor="WORKSHOPS">WORKSHOPS</label>
+                                </div>
+                                <div>
+                                    <input name="team" type="radio" onClick={handleChange} value="MERCH" />
+                                    <label htmlFor="MERCH">MERCH</label>
+                                </div>
+                                <div>
                                     <input name="team" type="radio" onClick={handleChange} value="HOSTS" />
                                     <label htmlFor="HOSTS">HOSTS</label>
                                 </div>
