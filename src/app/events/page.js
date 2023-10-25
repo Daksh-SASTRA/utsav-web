@@ -10,6 +10,7 @@ import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Nav from '../../components/Nav/Nav';
 import Footer from '@/components/Footer/Footer';
 import AllEvents from '@/components/AllEvents/AllEvents';
+import SideNav from '@/components/SideNav/SideNav';
 // Importing data elements
 import EventsData from '@/components/config/EventsData.json'
 
@@ -23,11 +24,12 @@ function Events() {
         <main className={styles.main}>
             <BlobGlow />
             <Nav />
+            <SideNav/>
             <AllEvents />
 
+        <Footer />
 
         </main>
-        <Footer />
     </>
 }
 

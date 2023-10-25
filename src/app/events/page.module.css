@@ -1,7 +1,7 @@
 .main {
     width: 100vw;
-    margin-top: 10vh;
-    min-height: 80vh;
+    /* margin-top: 10vh; */
+    height: 100vh;
 }
 
 @media screen and (max-width) {

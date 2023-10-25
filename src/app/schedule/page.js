@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import Nav from '../../components/Nav/Nav'
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Schedule from '@/components/Schedule/Schedule';
+import SideNav from '@/components/SideNav/SideNav';
 // import Footer from '../components/Footer/Footer'
 
 function SchedulePage() {
@@ -20,6 +21,7 @@ function SchedulePage() {
             <main className={styles.main}>
                 <BlobGlow />
                 <Nav />
+                <SideNav/>
                 <Schedule />
                 {/* <Footer /> */}
             </main>

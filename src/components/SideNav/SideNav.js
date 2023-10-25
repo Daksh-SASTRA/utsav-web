@@ -37,6 +37,7 @@ const SideNav = () => {
                         <div className={styles.item}><Link href='/merch'>Merchandise</Link> </div>
                         <div className={styles.item}><Link href='/events'>Events</Link> </div>
                         <div className={styles.item}><Link href='/workshops'>Workshops</Link> </div>
+                        <div className={styles.item}><Link href='/schedule'>Schedule</Link></div>
                     </div>
                 </div>
             </div>

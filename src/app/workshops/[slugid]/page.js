@@ -12,6 +12,7 @@ import styles from "./details.module.css";
 import Nav from '@/components/Nav/Nav';
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Footer from '@/components/Footer/Footer';
+import SideNav from '@/components/SideNav/SideNav';
 
 // Importing data elements
 import WorkshopsData from '@/components/config/WorkshopsData.json';
@@ -33,6 +34,7 @@ export default function Page(params) {
     <main className={styles.main}>
       <BlobGlow />
       <Nav />
+      <SideNav/>
       <h1 className={styles.heading}>Workshops</h1>
       <div className={styles.group}>
         <div className={styles.event_details}>

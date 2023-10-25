@@ -9,6 +9,7 @@ import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Nav from '@/components/Nav/Nav';
 import SmallTile from '@/components/SmallTile/SmallTile';
 import Footer from '@/components/Footer/Footer';
+import SideNav from '@/components/SideNav/SideNav';
 
 // Importing data elements
 import WorkshopsData from '@/components/config/WorkshopsData.json'
@@ -23,14 +24,16 @@ function Workshops() {
         <main className={styles.main}>
             <BlobGlow />
             <Nav />
+            <SideNav/>
             <h1 className={styles.heading}>Workshops</h1>
             <div className={styles.tilecontainer}>
                 {WorkshopsData.map((item, i) => (
                     <SmallTile key={i} workshopName={item.workshopName} imageLocation={item.image_url} detailsPage={i} />
                 ))}
             </div>
+            <Footer />
         </main>
-        <Footer />
+        
     </>
 }
 
