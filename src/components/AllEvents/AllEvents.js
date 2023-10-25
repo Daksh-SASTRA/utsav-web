@@ -13,6 +13,10 @@ const AllEvents = () => {
         ? EventsData
         : EventsData.filter(e => e.dept === selectedDepartment);
 
+    const departmentEvents = EventsData.filter(e => (e.dept !== 'Technotainment' && e.dept !== 'Gaming'))
+    const techEvents = EventsData.filter(e => e.dept === 'Technotainment')
+    const gamingEvents = EventsData.filter(e => e.dept === 'Gaming')
+
 
     return (
         <div className={`${styles.scontainer}`}>
@@ -30,17 +34,61 @@ const AllEvents = () => {
                 <a className={activebt == 'Gaming' ? styles.daybuttons__buttonactive : styles.daybuttons__button} onClick={() => { setSelectedDepartment('Gaming'); setActiveBt('Gaming'); }}>Gaming</a>
             </div>
             <div className={`${styles.eventsContainer}`}>
-                {filteredEvents && filteredEvents.map((e, i) => {
-                    return (
-                        <div key={i} className={`${styles.eventContainer}`}>
-                            <Link href={`/events/${e.eventId}`}>
-                                <p className={`${styles.eventName}`}>{e.title}</p>
-                                <p>Team : {e.dept}</p>
-                            </Link>
+                {activebt == 'All' ?
+                    <div className={`${styles.econ}`}>
+                        <div className={`${styles.eventsContainer}`}>
+                            {departmentEvents && departmentEvents.map((e, i) => {
+                                return (
+                                    <div key={i} className={`${styles.eventContainer}`}>
+                                        <Link href={`/events/${e.eventId}`}>
+                                            <p className={`${styles.eventName}`}>{e.title}</p>
+                                            <p>Team : {e.dept}</p>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
                         </div>
-                    )
-                })
-                }
+                        <div className={`${styles.hrstyle}`} ></div>
+                        <div className={`${styles.eventsContainer}`}>
+                            {techEvents && techEvents.map((e, i) => {
+                                return (
+                                    <div key={i} className={`${styles.eventContainer}`}>
+                                        <Link href={`/events/${e.eventId}`}>
+                                            <p className={`${styles.eventName}`}>{e.title}</p>
+                                            <p>Team : {e.dept}</p>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className={`${styles.hrstyle}`} >
+                            <br />
+                        </div>
+                        <div className={`${styles.eventsContainer}`}>
+                            {gamingEvents && gamingEvents.map((e, i) => {
+                                return (
+                                    <div key={i} className={`${styles.eventContainer}`}>
+                                        <Link href={`/events/${e.eventId}`}>
+                                            <p className={`${styles.eventName}`}>{e.title}</p>
+                                            <p>Team : {e.dept}</p>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+
+                    : filteredEvents && filteredEvents.map((e, i) => {
+                        return (
+                            <div key={i} className={`${styles.eventContainer}`}>
+                                <Link href={`/events/${e.eventId}`}>
+                                    <p className={`${styles.eventName}`}>{e.title}</p>
+                                    <p>Team : {e.dept}</p>
+                                </Link>
+                            </div>
+                        )
+                    })}
+
             </div>
 
 

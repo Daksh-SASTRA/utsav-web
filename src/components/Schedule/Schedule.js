@@ -6,8 +6,8 @@ import ScheduleData from '@/components/config/ScheduleData.json'
 
 
 const Schedule = () => {
-    const [day, setDay] = useState(0);
-    const [activebt, setActiveBt] = useState(0);
+    const [day, setDay] = useState(1);
+    const [activebt, setActiveBt] = useState(1);
 
 
     return (
@@ -16,11 +16,11 @@ const Schedule = () => {
                 SCHEDULE
             </div>
             <div className={`${styles.daybuttons}`}>
-                <a className={activebt == 0 ? styles.daybuttons__buttonactive : styles.daybuttons__button} onClick={() => { setDay(0); setActiveBt(0); }}>Day 0</a>
                 <a className={activebt == 1 ? styles.daybuttons__buttonactive : styles.daybuttons__button} onClick={() => { setDay(1); setActiveBt(1); }}>Day 1</a>
+                <a className={activebt == 2 ? styles.daybuttons__buttonactive : styles.daybuttons__button} onClick={() => { setDay(2); setActiveBt(2); }}>Day 2</a>
             </div>
             <div className={`${styles.scheduleContainer}`}>
-                {day == 0 || 1 ?
+                {day == 1 || 2 ?
 
                     (ScheduleData && ScheduleData[day].events.map((e, i) => {
                         return (
