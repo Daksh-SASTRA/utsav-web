@@ -19,7 +19,7 @@
 
 .event_details {
     display: grid;
-    margin: 0rem 3rem 3rem  1rem;
+    margin: 0rem 3rem 3rem 1rem;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     justify-content: center;
@@ -153,6 +153,9 @@
         font-size: 22px;
     }
 
+    .register>button {
+        min-width: 40%;
+    }
 
 }
 
