@@ -41,7 +41,7 @@ const Event = ({ eventId }) => {
                     </div>
                     <div className={`${styles.eventCard}`} >
                         <div className={`${styles.eventImage}`}>
-                            <img src="https://picsum.photos/500" />
+                            <img src={eventData.poster} />
                         </div>
                         <div className={`${styles.eventDesc}`}>
                             <p> {eventData ? eventData.desc : null}</p>
