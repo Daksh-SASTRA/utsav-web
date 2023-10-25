@@ -27,7 +27,7 @@ const Event = ({ eventId }) => {
                 <div className={`${styles.linkpreview}`}>
                     <iframe
                         title="Link Preview"
-                        src="https://daksh.sastra.edu/"
+                        src={eventData.register_link}
                         width="100%"
                         height="500px" // Adjust the height as needed
                     ></iframe>
