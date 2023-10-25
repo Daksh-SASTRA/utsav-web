@@ -8,13 +8,13 @@ const Event = ({ eventId }) => {
     const [eventData, setEventData] = useState({});
     const [showLinkPreview, setShowLinkPreview] = useState(false);
 
-    const handlePreviewClick = () => {
-        setShowLinkPreview(true);
-    };
+    // const handlePreviewClick = () => {
+    //     setShowLinkPreview(true);
+    // };
 
-    const handlePreviewClose = () => {
-        setShowLinkPreview(false);
-    };
+    // const handlePreviewClose = () => {
+    //     setShowLinkPreview(false);
+    // };
 
     useEffect(() => {
         const filteredEvent = eventsData.find((event) => event.eventId === eventId);
@@ -46,7 +46,7 @@ const Event = ({ eventId }) => {
                         <div className={`${styles.eventDesc}`}>
                             <p> {eventData ? eventData.desc : null}</p>
                             {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue ultrices nisi quis cursus. Maecenas id auctor dui. Vivamus ut consectetur arcu, nec accumsan urna. Aenean eleifend tempor odio sit amet tincidu.</p> */}
-                            <a className={`${styles.register_btn} ${styles.flexCenter}`} onClick={handlePreviewClick}>Register</a>
+                            <a className={`${styles.register_btn} ${styles.flexCenter}`} href={eventData.register_link} target="_blank" >Register</a>
 
                         </div>
                     </div>
