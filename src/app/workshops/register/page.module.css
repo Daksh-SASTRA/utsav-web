@@ -137,7 +137,7 @@
     text-align: center;
 }
 
-.qrcodesection>input {
+.qrcodesection > input {
     width: 250px;
 }
 

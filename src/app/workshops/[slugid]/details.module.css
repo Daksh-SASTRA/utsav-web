@@ -81,11 +81,11 @@
 
 }
 
-.register>button {
+.register_button_workshops {
     /* width: max-content; */
     padding: 0.85rem 1.5rem;
     border: 0;
-    background-color: rgba(255, 255, 255, 0.585);
+    background-color: white;
     color: black;
     border-radius: 50px;
     font-size: 1.2rem;
@@ -93,9 +93,9 @@
     width: 20%;
 }
 
-.register>button:hover {
-    cursor: no-drop;
-    /* transform: scale(1.1); */
+.register_button_workshops:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 @media screen and (max-width: 1080px) {
