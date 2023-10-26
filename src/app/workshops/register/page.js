@@ -275,9 +275,10 @@ const Page = () => {
                                 :
                                 <h3>Kindly Pay the full amount!</h3>
                             } */}
-                            <h2>Verify your payment below, {userDetails.fullname}</h2>
-                            {transVerifyStart ? <h3>Verifying ....</h3> : <button className={styles.verifyButton} onClick={verifyPaymentFromServer}>Verify Now!</button> }
-                            {verificationDetails.exist ? <p>Received amount of ₹{verificationDetails.amount}</p> : <></> }
+                            <h2>Hello, {userDetails.fullname}</h2>
+                            {status.payment == "full" ? <h4>Thanks for Registering</h4> : <h4>Verification under progress</h4>}
+                            {/* {transVerifyStart ? <h3>Verifying ....</h3> : <button className={styles.verifyButton} onClick={verifyPaymentFromServer}>Verify Now!</button> } */}
+                            {/* {verificationDetails.exist ? <p>Received amount of ₹{verificationDetails.amount}</p> : <></> } */}
                         </div>
                         :
                         <>
@@ -393,7 +394,7 @@ const Page = () => {
                                     <label>Pay ₹{workshopDetail.price} here: </label>
                                     {/* <h4>saneesha293@okicici</h4> */}
                                     <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" />
-                                    <input placeholder="Enter your transaction id" name="transactionid" type="text" onChange={handleChange} />
+                                    <input placeholder="Enter your UPI Reference Number" name="transactionid" type="text" onChange={handleChange} />
                                 </div>
                                 <div className={styles.register__btn__div}>
                                     <button type="submit" className={styles.register__btn}>Submit</button>
