@@ -137,7 +137,7 @@
     text-align: center;
 }
 
-.qrcodesection>input {
+.qrcodesection > input {
     width: 250px;
 }
 
@@ -166,6 +166,15 @@
 .register__btn:hover {
     background-color: #8D4AD8;
     color: white;
+}
+
+.verifyButton {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #8D4AD8;
+    color: white;
+    font-size: 1.2rem;
 }
 
 @media screen and (max-width: 850px) {

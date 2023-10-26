@@ -45,7 +45,7 @@ export default function Page(params) {
             {/* <p className={styles.caption}>{workshopEvent.caption}</p> */}
             <p className={styles.price}>Price: T.B.A</p>
             <div className={styles.register}>
-              <button><Link href={`/workshops/register?id=${workshopId}`}>Register</Link></button>
+              <Link href={`/workshops/register?id=${workshopId}`}><button className={styles.register_button_workshops}>Register</button></Link>
             </div>
           </div>
         </div>
