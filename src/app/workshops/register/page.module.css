@@ -108,11 +108,11 @@
 #throughhearing div {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .register_form label {
-    width: 100%;
+    width: 80%;
     text-align: left;
 }
 
@@ -181,6 +181,10 @@
     .register_form {
         width: 80%;
         flex-direction: column;
+    }
+
+    #throughhearing div {
+        flex-wrap: wrap;
     }
 
     .throughradio {
