@@ -86,6 +86,10 @@ const Page = () => {
         // console.log(values);
     }
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let empty = null;
@@ -109,7 +113,7 @@ const Page = () => {
             // console.log("Sending request")
             await fetch(url)
                 .then((response) => {
-                    response.json().then((res) => {
+                    response.json().then(async (res) => {
                         if (response.status === 200) {
                             // console.log(res)
                             if (res.status) {
@@ -123,6 +127,8 @@ const Page = () => {
                                     progress: undefined,
                                     theme: "colored",
                                 });
+                                fetchPaymentDetails(userDetails.userid);
+                                await sleep(1000);
                                 // signOut(auth).then(() => {
                                 //     setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
                                 //     updateValidAuthToken(null);
