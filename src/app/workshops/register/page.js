@@ -74,6 +74,12 @@ const Page = () => {
         userid: null
     })
 
+    const [transVerifyStart, setTransVerifyStart] = useState(false)
+    const [verificationDetails, setVerificationDetails] = useState({
+        exist: false,
+        amount: "0"
+    })
+
     const handleChange = (e) => {
         e.preventDefault;
         setValues({ ...values, [e.target.name]: e.target.value });
@@ -117,22 +123,22 @@ const Page = () => {
                                     progress: undefined,
                                     theme: "colored",
                                 });
-                                signOut(auth).then(() => {
-                                    setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
-                                    updateValidAuthToken(null);
-                                    toast.success("Payment under verification!", {
-                                        position: "top-right",
-                                        autoClose: 5000,
-                                        hideProgressBar: true,
-                                        closeOnClick: true,
-                                        pauseOnHover: true,
-                                        draggable: false,
-                                        progress: undefined,
-                                        theme: "colored",
-                                    });
-                                }).catch((error) => {
-                                    setError(error);
-                                })
+                                // signOut(auth).then(() => {
+                                //     setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
+                                //     updateValidAuthToken(null);
+                                //     toast.success("Payment under verification!", {
+                                //         position: "top-right",
+                                //         autoClose: 5000,
+                                //         hideProgressBar: true,
+                                //         closeOnClick: true,
+                                //         pauseOnHover: true,
+                                //         draggable: false,
+                                //         progress: undefined,
+                                //         theme: "colored",
+                                //     });
+                                // }).catch((error) => {
+                                //     setError(error);
+                                // })
                             }
                             else {
                                 setError(res.msg);
@@ -211,6 +217,27 @@ const Page = () => {
         })
     }
 
+    const verifyPaymentFromServer = async () => {
+        setTransVerifyStart(true);
+        const validURL = `https://daksh.sastra.edu/registration/transactions/gettxn?txnid=${values.transactionid}`;
+        await fetch(validURL).then((response) => {
+            response.json().then((res) => {
+                if (response.status === 200) {
+                    // console.log(res)
+                    if (res.exist) {
+                        // console.log("success")
+                        // alert('Success: Registration submitted successfully.');
+                        setVerificationDetails({ ...verificationDetails, exist: res.exist, amount: res.amt })
+                    }
+                }
+            })
+            setTransVerifyStart(false);
+        }).catch((error) => {
+            // console.log(error);
+            setError(error);
+        })
+    }
+
     useEffect(() => {
         if (error !== null) {
             toast.error(error, {
@@ -235,13 +262,16 @@ const Page = () => {
                 {validAuthToken !== null ?
                     status.exist && status.event === workshopDetail.workshopId ?
                         <div className={styles.afteruipage}>
-                            <h2>Welcome back, {userDetails.fullname}</h2>
+                            {/* <h2>Welcome back, {userDetails.fullname}</h2>
                             <h3>Your payment status: {status.payment === "full" ? <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
                             {status.payment === "full" ?
                                 <h3>Your registration is successful!</h3>
                                 :
                                 <h3>Kindly Pay the full amount!</h3>
-                            }
+                            } */}
+                            <h2>Verify your payment below, {userDetails.fullname}</h2>
+                            {transVerifyStart ? <h3>Verifying ....</h3> : <button className={styles.verifyButton} onClick={verifyPaymentFromServer}>Verify Now!</button> }
+                            {verificationDetails.exist ? <p>Received amount of ₹{verificationDetails.amount}</p> : <></> }
                         </div>
                         :
                         <>
