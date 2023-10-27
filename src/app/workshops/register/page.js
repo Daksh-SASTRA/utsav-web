@@ -210,12 +210,25 @@ const Page = () => {
             response.json().then(async (res) => {
                 if (response.status === 200) {
                     if (res.exist) {
-                        if (status.payment !== "full") {
+                        if (status.payment == "full") {
+                            updateStatus({ ...status, exist: res.exist, event: res.event, msg: "Registered Successfully!" });
+                            toast.success(res.msg, {
+                                position: "Registered Successfully!",
+                                autoClose: 5000,
+                                hideProgressBar: true,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: false,
+                                progress: undefined,
+                                theme: "colored",
+                            });
+                        }
+                        else {
                             const subURL = `https://daksh.sastra.edu/registration/workshops/verify?uid=${uid}&wname=${workshopDetail.workshopId}&txnid=${values.transactionid}`
                             await fetch(subURL).then((response) => {
                                 response.json().then((res) => {
                                     if (response.status === 200) {
-                                        updateStatus({ ...status, exist: true, msg: res.msg });
+                                        updateStatus({ ...status, exist: res.status, msg: res.msg });
                                         if (res.status) {
                                             toast.success(res.msg, {
                                                 position: "top-right",
@@ -236,19 +249,6 @@ const Page = () => {
                             }).catch((error) => {
                                 setError(error);
                             })
-                        }
-                        else {
-                            updateStatus({ ...status, exist: res.exist, event: res.event, msg: "Registered Successfully!" });
-                            toast.success(res.msg, {
-                                position: "Registered Successfully!",
-                                autoClose: 5000,
-                                hideProgressBar: true,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: false,
-                                progress: undefined,
-                                theme: "colored",
-                            });
                         }
                     }
                 }
