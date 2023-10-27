@@ -444,7 +444,7 @@ const Page = () => {
                                     {verificationDetails.exist ?
                                         <button type="submit" className={styles.register__btn}>Submit</button>
                                         :
-                                        <button onClick={verifyPaymentFromServer} className={`${styles.register__btn} ${styles.verify__register__btn}`}>Verify UPI Reference Number</button>
+                                        <div onClick={verifyPaymentFromServer} className={styles.verify__register__btn}>Verify UPI Reference Number</div>
                                     }
                                 </div>
                             </form>
@@ -457,7 +457,7 @@ const Page = () => {
                 }
             </div>
             <ToastContainer />
-        </div>
+        </div >
     )
 }
 
