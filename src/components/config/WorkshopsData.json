@@ -9,16 +9,5 @@
         "company": "Intel Corporation",
         "registration": false,
         "gpay": "/workshops/gpayqr/intel.jpg"
-    },
-    {
-        "workshopName": "Journey to Data Brilliance: Machine Learning and Beyond",
-        "workshopId": "IBM",
-        "image_url": "/workshops/ibm-logo.webp",
-        "tagline": "Charting the Future: Navigating with Machine Learning",
-        "description": "Embark on a journey into the realm of machine learning! Explore 'Linear Regression' for predictive analysis and ascertain algorithms towards 'Model Designing' for redefining future excellence . Unlock the power of data-driven decisions with us!",
-        "price": "350.00",
-        "company": "IBM",
-        "registration": false,
-        "gpay": "/workshops/gpayqr/ibm.jpg"
     }
 ]

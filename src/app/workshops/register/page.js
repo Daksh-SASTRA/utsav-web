@@ -401,23 +401,23 @@ const Page = () => {
                                         </div>
                                     </div>
                                 </section>
-                                {verificationDetails.exist ?
+                                {/* {verificationDetails.exist ?
                                     <h4 style={{ color: 'green' }}>Transaction verified successfully</h4>
                                     :
-                                    <div className={styles.qrcodesection}>
-                                        <label>Pay ₹{workshopDetail.price} here </label>
-                                        {/* <h4>saneesha293@okicici</h4> */}
-                                        <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" />
-                                        <input placeholder="Enter your UPI Ref. N0./UTR No." name="transactionid" type="text" onChange={handleChange} />
-                                    </div>
-                                }
+                                } */}
+                                <div className={styles.qrcodesection}>
+                                    <label>Pay ₹{workshopDetail.price} here </label>
+                                    {/* <h4>saneesha293@okicici</h4> */}
+                                    <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" />
+                                    <input placeholder="Enter your UPI Ref. N0./UTR No." name="transactionid" type="text" onChange={handleChange} />
+                                </div>
 
                                 <div className={styles.register__btn__div}>
-                                    {verificationDetails.exist ?
-                                        <button type="submit" className={styles.register__btn}>Submit</button>
+                                    <button type="submit" className={styles.register__btn}>Submit</button>
+                                    {/* {verificationDetails.exist ?
                                         :
                                         <div onClick={verifyPaymentFromServer} className={styles.verify__register__btn}>Verify UPI Reference Number</div>
-                                    }
+                                    } */}
                                 </div>
                             </form>
                         </>
