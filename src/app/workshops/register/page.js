@@ -210,7 +210,7 @@ const Page = () => {
             response.json().then(async (res) => {
                 if (response.status === 200) {
                     if (res.exist) {
-                        if (status.payment == "full") {
+                        if (res.payment == "full") {
                             updateStatus({ ...status, exist: res.exist, event: res.event, msg: "Registered Successfully!" });
                             toast.success(res.msg, {
                                 position: "Registered Successfully!",
@@ -224,7 +224,7 @@ const Page = () => {
                             });
                         }
                         else {
-                            const subURL = `https://daksh.sastra.edu/registration/workshops/verify?uid=${uid}&wname=${workshopDetail.workshopId}&txnid=${values.transactionid}`
+                            const subURL = `https://daksh.sastra.edu/registration/workshops/verify?uid=${uid}&wname=${workshopDetail.workshopId}&txnid=${res.txnid}`
                             await fetch(subURL).then((response) => {
                                 response.json().then((res) => {
                                     if (response.status === 200) {
