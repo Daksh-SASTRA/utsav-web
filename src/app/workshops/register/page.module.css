@@ -197,11 +197,12 @@
 .afteruipageworkshop {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-direction: column;
     width: 100vw;
-    height: 90vh;
+    height: 70vh;
     margin-top: 10vh;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 
 @media screen and (max-width: 850px) {
