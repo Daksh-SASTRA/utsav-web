@@ -210,13 +210,13 @@ const Page = () => {
             response.json().then(async (res) => {
                 if (response.status === 200) {
                     if (res.exist) {
-                        updateStatus({ ...status, payment: res.payment, exist: res.exist, event: res.event });
                         if (status.payment !== "full") {
                             const subURL = `https://daksh.sastra.edu/registration/workshops/verify?uid=${uid}&wname=${workshopDetail.workshopId}&txnid=${values.transactionid}`
                             await fetch(subURL).then((response) => {
                                 response.json().then((res) => {
                                     if (response.status === 200) {
                                         if (res.status) {
+                                            updateStatus({ ...status, exist: true, msg: res.msg });
                                             toast.success(res.msg, {
                                                 position: "top-right",
                                                 autoClose: 5000,
@@ -229,19 +229,26 @@ const Page = () => {
                                             });
                                         }
                                         else {
+                                            updateStatus({ ...status, exist: true, msg: res.msg });
                                             setError(res.msg);
                                         }
-                                        signOut(auth).then(() => {
-                                            setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
-                                            updateValidAuthToken(null);
-                                        }).catch((error) => {
-                                            setError(error);
-                                        })
                                     }
                                 })
                             }).catch((error) => {
                                 setError(error);
                             })
+                        }
+                        else {
+                            toast.success(res.msg, {
+                                position: "Registered Successfully!",
+                                autoClose: 5000,
+                                hideProgressBar: true,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: false,
+                                progress: undefined,
+                                theme: "colored",
+                            });
                         }
                     }
                 }
@@ -315,7 +322,8 @@ const Page = () => {
                                 <h3>Kindly Pay the full amount!</h3>
                             } */}
                             <h2>Hello, {userDetails.fullname}</h2>
-                            <h4>{status.payment == "full" ? <>Registration successful</> : status.payment == "no" ? <>Under verification</> : <>Contact organizers to complete payment</>}</h4>
+                            <h4>{status.msg}</h4>
+                            {/* <h4>{status.payment == "full" ? <>Registration successful</> : status.payment == "no" ? <>Under verification</> : <>Contact organizers to complete payment</>}</h4> */}
                             {/* {transVerifyStart ? <h3>Verifying ....</h3> : <button className={styles.verifyButton} onClick={verifyPaymentFromServer}>Verify Now!</button> } */}
                             {/* {verificationDetails.exist ? <p>Received amount of ₹{verificationDetails.amount}</p> : <></> } */}
                         </div>
