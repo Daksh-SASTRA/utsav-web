@@ -284,9 +284,9 @@ const Page = () => {
             <div className={styles.register_container}>
                 {validAuthToken !== null ?
                     status.exist && status.event === workshopDetail.workshopId ?
-                        <div className={styles.afteruipage}>
+                        <div className={styles.afteruipageworkshop}>
                             <h2>Hello, {userDetails.fullname}</h2>
-                            <h4>{status.msg}</h4>
+                            <h4>Registration successful!</h4>
                             {/* <h4>{status.payment == "full" ? <>Registration successful</> : status.payment == "no" ? <>Under verification</> : <>Contact organizers to complete payment</>}</h4> */}
                             {/* {transVerifyStart ? <h3>Verifying ....</h3> : <button className={styles.verifyButton} onClick={verifyPaymentFromServer}>Verify Now!</button> } */}
                             {/* {verificationDetails.exist ? <p>Received amount of ₹{verificationDetails.amount}</p> : <></> } */}
