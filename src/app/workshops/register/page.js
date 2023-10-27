@@ -94,8 +94,6 @@ const Page = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         let empty = null;
-        // let target = JSON.stringify(values)
-        // console.log(Object.entries(values))
         Object.entries(values).forEach((el) => {
             Object.keys(el).forEach((property) => {
                 if (el[property] === "" || el[property] === " ") {
@@ -127,7 +125,7 @@ const Page = () => {
                                     progress: undefined,
                                     theme: "colored",
                                 });
-                                fetchPaymentDetails(userDetails.userid);
+                                fetchUserDetails(userDetails.userid);
                                 await sleep(1000);
                                 // signOut(auth).then(() => {
                                 //     setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
@@ -172,7 +170,7 @@ const Page = () => {
                 const [regisno, mail] = user.email.split('@');
                 //console.log(regno, mail)
                 if (mail.toString() === "sastra.ac.in") {
-                    updateValidAuthToken(token)
+                    updateValidAuthToken(token);
                     // console.log("token",  token)
                     setUserDetails({
                         ...userDetails,
@@ -182,7 +180,7 @@ const Page = () => {
                         fullname: user.displayName,
                         regno: regisno
                     })
-                    fetchPaymentDetails(fetchUID);
+                    fetchUserDetails(fetchUID);
                 }
                 else {
                     signOut(auth).then(() => {
@@ -204,51 +202,24 @@ const Page = () => {
             });
     }
 
-    const fetchPaymentDetails = async (uid) => {
+    const fetchUserDetails = async (uid) => {
         const validURL = `https://daksh.sastra.edu/registration/workshops/getuser?uid=${uid}&wname=${workshopDetail.workshopId}`;
         await fetch(validURL).then((response) => {
             response.json().then(async (res) => {
                 if (response.status === 200) {
                     if (res.exist) {
                         if (res.payment == "full") {
-                            updateStatus({ ...status, exist: res.exist, event: res.event, msg: "Registered Successfully!" });
-                            toast.success(res.msg, {
-                                position: "top-right",
-                                autoClose: 5000,
-                                hideProgressBar: true,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: false,
-                                progress: undefined,
-                                theme: "colored",
-                            });
-                        }
-                        else {
-                            const subURL = `https://daksh.sastra.edu/registration/workshops/verify?uid=${uid}&wname=${workshopDetail.workshopId}&txnid=${res.txnid}`
-                            await fetch(subURL).then((response) => {
-                                response.json().then((res) => {
-                                    if (response.status === 200) {
-                                        updateStatus({ ...status, exist: true, msg: res.msg });
-                                        if (res.status) {
-                                            toast.success(res.msg, {
-                                                position: "top-right",
-                                                autoClose: 5000,
-                                                hideProgressBar: true,
-                                                closeOnClick: true,
-                                                pauseOnHover: true,
-                                                draggable: false,
-                                                progress: undefined,
-                                                theme: "colored",
-                                            });
-                                        }
-                                        else {
-                                            setError(res.msg);
-                                        }
-                                    }
-                                })
-                            }).catch((error) => {
-                                setError(error);
-                            })
+                            updateStatus({ ...status, exist: res.exist, event: res.event });
+                            // toast.success(res.msg, {
+                            //     position: "top-right",
+                            //     autoClose: 5000,
+                            //     hideProgressBar: true,
+                            //     closeOnClick: true,
+                            //     pauseOnHover: true,
+                            //     draggable: false,
+                            //     progress: undefined,
+                            //     theme: "colored",
+                            // });
                         }
                     }
                 }
@@ -314,13 +285,6 @@ const Page = () => {
                 {validAuthToken !== null ?
                     status.exist && status.event === workshopDetail.workshopId ?
                         <div className={styles.afteruipage}>
-                            {/* <h2>Welcome back, {userDetails.fullname}</h2>
-                            <h3>Your payment status: {status.payment === "full" ? <h3 style={{ color: 'green' }}>FULL PAID</h3> : <h3 style={{ color: 'orange' }}>UNDER VERIFICATION</h3>}</h3>
-                            {status.payment === "full" ?
-                                <h3>Your registration is successful!</h3>
-                                :
-                                <h3>Kindly Pay the full amount!</h3>
-                            } */}
                             <h2>Hello, {userDetails.fullname}</h2>
                             <h4>{status.msg}</h4>
                             {/* <h4>{status.payment == "full" ? <>Registration successful</> : status.payment == "no" ? <>Under verification</> : <>Contact organizers to complete payment</>}</h4> */}
