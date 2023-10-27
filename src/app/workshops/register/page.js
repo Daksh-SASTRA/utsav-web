@@ -213,7 +213,7 @@ const Page = () => {
                         if (res.payment == "full") {
                             updateStatus({ ...status, exist: res.exist, event: res.event, msg: "Registered Successfully!" });
                             toast.success(res.msg, {
-                                position: "Registered Successfully!",
+                                position: "top-right",
                                 autoClose: 5000,
                                 hideProgressBar: true,
                                 closeOnClick: true,
@@ -228,7 +228,7 @@ const Page = () => {
                             await fetch(subURL).then((response) => {
                                 response.json().then((res) => {
                                     if (response.status === 200) {
-                                        updateStatus({ ...status, exist: res.status, msg: res.msg });
+                                        updateStatus({ ...status, exist: true, msg: res.msg });
                                         if (res.status) {
                                             toast.success(res.msg, {
                                                 position: "top-right",
