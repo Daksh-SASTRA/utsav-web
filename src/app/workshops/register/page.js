@@ -215,8 +215,8 @@ const Page = () => {
                             await fetch(subURL).then((response) => {
                                 response.json().then((res) => {
                                     if (response.status === 200) {
+                                        updateStatus({ ...status, exist: true, msg: res.msg });
                                         if (res.status) {
-                                            updateStatus({ ...status, exist: true, msg: res.msg });
                                             toast.success(res.msg, {
                                                 position: "top-right",
                                                 autoClose: 5000,
@@ -229,7 +229,6 @@ const Page = () => {
                                             });
                                         }
                                         else {
-                                            updateStatus({ ...status, exist: true, msg: res.msg });
                                             setError(res.msg);
                                         }
                                     }
@@ -239,6 +238,7 @@ const Page = () => {
                             })
                         }
                         else {
+                            updateStatus({ ...status, exist: res.exist, event: res.event, msg: "Registered Successfully!" });
                             toast.success(res.msg, {
                                 position: "Registered Successfully!",
                                 autoClose: 5000,
