@@ -138,7 +138,7 @@
 }
 
 .qrcodesection > input {
-    width: 250px;
+    width: 50%;
 }
 
 .register__btn__div {
@@ -193,5 +193,9 @@
 
     .throughradio div label {
         width: 80%;
+    }
+
+    .qrcodesection > input {
+        width: 75vw;
     }
 }

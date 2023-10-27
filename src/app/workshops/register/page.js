@@ -77,7 +77,8 @@ const Page = () => {
     const [transVerifyStart, setTransVerifyStart] = useState(false)
     const [verificationDetails, setVerificationDetails] = useState({
         exist: false,
-        amount: "0"
+        amount: "0",
+        message: ""
     })
 
     const handleChange = (e) => {
@@ -115,7 +116,6 @@ const Page = () => {
                 .then((response) => {
                     response.json().then(async (res) => {
                         if (response.status === 200) {
-                            // console.log(res)
                             if (res.status) {
                                 toast.success(res.msg, {
                                     position: "top-right",
@@ -207,13 +207,42 @@ const Page = () => {
     const fetchPaymentDetails = async (uid) => {
         const validURL = `https://daksh.sastra.edu/registration/workshops/getuser?uid=${uid}&wname=${workshopDetail.workshopId}`;
         await fetch(validURL).then((response) => {
-            response.json().then((res) => {
+            response.json().then(async (res) => {
                 if (response.status === 200) {
-                    // console.log(res)
                     if (res.exist) {
-                        // console.log("success")
-                        // alert('Success: Registration submitted successfully.');
-                        updateStatus({ ...status, payment: res.payment, exist: res.exist, event: res.event })
+                        updateStatus({ ...status, payment: res.payment, exist: res.exist, event: res.event });
+                        if (status.payment !== "full") {
+                            const subURL = `https://daksh.sastra.edu/registration/workshops/verify?uid=${uid}&wname=${workshopDetail.workshopId}&txnid=${values.transactionid}`
+                            await fetch(subURL).then((response) => {
+                                response.json().then((res) => {
+                                    if (response.status === 200) {
+                                        if (res.status) {
+                                            toast.success(res.msg, {
+                                                position: "top-right",
+                                                autoClose: 5000,
+                                                hideProgressBar: true,
+                                                closeOnClick: true,
+                                                pauseOnHover: true,
+                                                draggable: false,
+                                                progress: undefined,
+                                                theme: "colored",
+                                            });
+                                        }
+                                        else {
+                                            setError(res.msg);
+                                        }
+                                        signOut(auth).then(() => {
+                                            setUserDetails({ ...userDetails, email: null, token: null, fullname: null, regno: null, userid: null });
+                                            updateValidAuthToken(null);
+                                        }).catch((error) => {
+                                            setError(error);
+                                        })
+                                    }
+                                })
+                            }).catch((error) => {
+                                setError(error);
+                            })
+                        }
                     }
                 }
             })
@@ -225,21 +254,31 @@ const Page = () => {
 
     const verifyPaymentFromServer = async () => {
         setTransVerifyStart(true);
+        // await sleep(3000);
         const validURL = `https://daksh.sastra.edu/registration/transactions/gettxn?txnid=${values.transactionid}`;
         await fetch(validURL).then((response) => {
             response.json().then((res) => {
                 if (response.status === 200) {
-                    // console.log(res)
                     if (res.exist) {
-                        // console.log("success")
-                        // alert('Success: Registration submitted successfully.');
-                        setVerificationDetails({ ...verificationDetails, exist: res.exist, amount: res.amt })
+                        setVerificationDetails({ ...verificationDetails, exist: res.exist });
+                        toast.success("Transaction ID Verified!", {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: true,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: false,
+                            progress: undefined,
+                            theme: "colored",
+                        });
+                    }
+                    else {
+                        setError("Transaction ID yet to be verified!");
                     }
                 }
             })
             setTransVerifyStart(false);
         }).catch((error) => {
-            // console.log(error);
             setError(error);
         })
     }
@@ -276,7 +315,7 @@ const Page = () => {
                                 <h3>Kindly Pay the full amount!</h3>
                             } */}
                             <h2>Hello, {userDetails.fullname}</h2>
-                            {status.payment == "full" ? <h4>Thanks for Registering</h4> : <h4>Verification under progress</h4>}
+                            <h4>{status.payment == "full" ? <>Registration successful</> : status.payment == "no" ? <>Under verification</> : <>Contact organizers to complete payment</>}</h4>
                             {/* {transVerifyStart ? <h3>Verifying ....</h3> : <button className={styles.verifyButton} onClick={verifyPaymentFromServer}>Verify Now!</button> } */}
                             {/* {verificationDetails.exist ? <p>Received amount of ₹{verificationDetails.amount}</p> : <></> } */}
                         </div>
@@ -390,14 +429,23 @@ const Page = () => {
                                         </div>
                                     </div>
                                 </section>
-                                <div className={styles.qrcodesection}>
-                                    <label>Pay ₹{workshopDetail.price} here: </label>
-                                    {/* <h4>saneesha293@okicici</h4> */}
-                                    <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" />
-                                    <input placeholder="Enter your UPI Reference Number" name="transactionid" type="text" onChange={handleChange} />
-                                </div>
+                                {verificationDetails.exist ?
+                                    <h4 style={{ color: 'green' }}>Transaction verified successfully</h4>
+                                    :
+                                    <div className={styles.qrcodesection}>
+                                        <label>Pay ₹{workshopDetail.price} here </label>
+                                        {/* <h4>saneesha293@okicici</h4> */}
+                                        <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" />
+                                        <input placeholder="Enter your UPI Ref. N0./UTR No." name="transactionid" type="text" onChange={handleChange} />
+                                    </div>
+                                }
+
                                 <div className={styles.register__btn__div}>
-                                    <button type="submit" className={styles.register__btn}>Submit</button>
+                                    {verificationDetails.exist ?
+                                        <button type="submit" className={styles.register__btn}>Submit</button>
+                                        :
+                                        <button onClick={verifyPaymentFromServer} className={`${styles.register__btn} ${styles.verify__register__btn}`}>Verify UPI Reference Number</button>
+                                    }
                                 </div>
                             </form>
                         </>
