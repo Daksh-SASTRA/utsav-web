@@ -11,58 +11,86 @@
             {
                 "eventId": "1",
                 "eventname": "Te(X)Scape",
-                "fromtime": "04:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
-            },
-            {
-                "eventId": "3",
-                "eventname": "Knowledge knockout",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "09:00 AM",
+                "totime": "05:00 PM",
+                "venue": "LTC 201,204,206,208"
             },
             {
                 "eventId": "5",
                 "eventname": "Gear up!",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "09:30 AM",
+                "totime": "03:30 PM",
+                "venue": "VKJ 201,VKJ 202"
+            },
+            {
+                "eventId": "3",
+                "eventname": "Knowledge knockout",
+                "fromtime": "10:00 AM",
+                "totime": "04:00 PM",
+                "venue": "VV 337,338,339"
+            },
+            {
+                "eventId": "8",
+                "eventname": "Truth vs Pseudo Truth",
+                "fromtime": "12:30 PM",
+                "totime": "04:30 PM",
+                "venue": ""
             },
             {
                 "eventId": "7",
                 "eventname": "Bingo maniacs",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "08:30 AM",
+                "totime": "12:30 PM",
+                "venue": ""
             },
             {
                 "eventId": "9",
                 "eventname": "Spot the spoof",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "09:00 PM",
+                "totime": "05:30 PM",
+                "venue": "NMV 211,219"
             },
             {
-                "eventId": "11",
-                "eventname": "Cash Royale",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "eventId": "10",
+                "eventname": "Alchemy adept",
+                "fromtime": "09:00 PM",
+                "totime": "05:30 PM",
+                "venue": "NMV 317,323,324"
+            },
+            {
+                "eventId": "14",
+                "eventname": "Mortal Kombat",
+                "fromtime": "08:30 AM",
+                "totime": "05:30 PM",
+                "venue": "LTC 101,111,113"
             },
             {
                 "eventId": "13",
                 "eventname": "F1FA",
-                "fromtime": "05:00 PM",
+                "fromtime": "08:30 AM",
+                "totime": "05:30 PM",
+                "venue": "Parking lot"
+            },
+            {
+                "eventId": "15",
+                "eventname": "Fun zone",
+                "fromtime": "09:00 AM",
                 "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "venue": "Parking lot"
             },
             {
                 "eventId": "12",
                 "eventname": "Sherlock",
-                "fromtime": "05:00 PM",
+                "fromtime": "10:00 AM",
+                "totime": "02:00 PM",
+                "venue": "VKJ Audi"
+            },
+            {
+                "eventId": "11",
+                "eventname": "Cash Royale",
+                "fromtime": "02:00 PM",
                 "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "venue": "VV Audi"
             }
         ]
     },
@@ -73,58 +101,86 @@
             {
                 "eventId": "2",
                 "eventname": "APItrix",
-                "fromtime": "11:00 AM",
-                "totime": "1:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "9:00 AM",
+                "totime": "5:00 PM",
+                "venue": "LTC 201"
             },
             {
                 "eventId": "4",
                 "eventname": "Test your farads",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "10:00 AM",
+                "totime": "05:00 PM",
+                "venue": "VV 337,338,339"
             },
             {
                 "eventId": "6",
                 "eventname": "Build 'n Thrill",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "09:30 AM",
+                "totime": "03:30 PM",
+                "venue": ""
+            },
+            {
+                "eventId": "7",
+                "eventname": "Bingo maniacs",
+                "fromtime": "08:30 AM",
+                "totime": "12:30 PM",
+                "venue": ""
+            },
+            {
+                "eventId": "9",
+                "eventname": "Spot the spoof",
+                "fromtime": "09:00 AM",
+                "totime": "05:30 PM",
+                "venue": "NMV 211,219"
             },
             {
                 "eventId": "8",
                 "eventname": "Truth vs Pseudo Truth",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
-            },
-            {
-                "eventId": "10",
-                "eventname": "Alchemy adept",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
-            },
-            {
-                "eventId": "12",
-                "eventname": "Sherlock",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "12:30 PM",
+                "totime": "04:30 PM",
+                "venue": ""
             },
             {
                 "eventId": "14",
                 "eventname": "Mortal Kombat",
-                "fromtime": "05:00 PM",
+                "fromtime": "08:30 AM",
+                "totime": "05:30 PM",
+                "venue": "LTC 101,111,113"
+            },
+            {
+                "eventId": "13",
+                "eventname": "F1FA",
+                "fromtime": "08:30 AM",
+                "totime": "05:30 PM",
+                "venue": "Parking lot"
+            },
+            {
+                "eventId": "10",
+                "eventname": "Alchemy adept",
+                "fromtime": "09:00 AM",
+                "totime": "05:30 PM",
+                "venue": "NMV 317,323,324"
+            },
+            {
+                "eventId": "15",
+                "eventname": "Fun zone",
+                "fromtime": "09:00 AM",
                 "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "venue": "Parking lot"
             },
             {
                 "eventId": "11",
                 "eventname": "Cash Royale",
-                "fromtime": "05:00 PM",
-                "totime": "06:00 PM",
-                "venue": "SOC Auditorium"
+                "fromtime": "10:00 AM",
+                "totime": "02:00 PM",
+                "venue": "VV 205"
+            },
+            {
+                "eventId": "12",
+                "eventname": "Sherlock",
+                "fromtime": "10:00 AM",
+                "totime": "02:00 PM",
+                "venue": ""
             }
         ]
     }
