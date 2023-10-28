@@ -358,11 +358,11 @@ function MerchForm() {
                             <button type="submit" className={styles.register__btn}>Submit</button>
                         </div>
                     </form>
-                :<></>
+                : <>Registrations are closed! Please contact Merchandise team.</>
                 //<div className={styles.loginui}>
                 //    <button onClick={studentLogin}><FontAwesomeIcon icon={faGoogle} /> Sign In</button>
                 //    <p>* kindly use SASTRA mail to log in *</p>
-               // </div>
+                // </div>
             }
             <ToastContainer />
         </div>
