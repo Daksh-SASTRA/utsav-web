@@ -27,8 +27,8 @@ const Schedule = () => {
                             <div key={i} className={`${styles.eventContainer}`}>
                                 <Link href={`/events/${e.eventId}`}>
                                     <p className={`${styles.eventName}`}>{e.eventname}</p>
-                                    <p>Time</p>
-                                    <p>Venue</p>
+                                    <p>Time : {e.fromtime}-{e.totime}</p>
+                                    <p>Venue : {e.venue}</p>
                                 </Link>
                             </div>
                         )
