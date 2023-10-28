@@ -56,6 +56,13 @@
                 "fromtime": "05:00 PM",
                 "totime": "06:00 PM",
                 "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "12",
+                "eventname": "Sherlock",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
             }
         ]
     },
@@ -108,6 +115,13 @@
             {
                 "eventId": "14",
                 "eventname": "Mortal Kombat",
+                "fromtime": "05:00 PM",
+                "totime": "06:00 PM",
+                "venue": "SOC Auditorium"
+            },
+            {
+                "eventId": "11",
+                "eventname": "Cash Royale",
                 "fromtime": "05:00 PM",
                 "totime": "06:00 PM",
                 "venue": "SOC Auditorium"
