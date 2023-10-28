@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import Nav from '@/components/Nav/Nav'
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
 import Event from '@/components/Event/Event';
+import SideNav from '@/components/SideNav/SideNav';
 
 // import Footer from '../components/Footer/Footer'
 
@@ -22,6 +23,7 @@ function EventPage({ params }) {
             <main className={styles.main}>
                 <BlobGlow />
                 <Nav />
+                <SideNav/>
                 <Event eventId={ params.eventId }/>
                 {/* <Footer /> */}
             </main>

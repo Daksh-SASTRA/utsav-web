@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import MerchForm from "../../components/Merch/MerchForm";
 import Nav from '../../components/Nav/Nav'
 import BlobGlow from '@/components/BlobGlow/BlobGlow';
+import SideNav from '@/components/SideNav/SideNav';
 // import Footer from '../components/Footer/Footer'
 
 function MerchandisePage() {
@@ -20,6 +21,7 @@ function MerchandisePage() {
             <main className={styles.main}>
                 <BlobGlow />
                 <Nav />
+                <SideNav/>
                 <MerchForm />
                 {/* <Footer /> */}
             </main>
