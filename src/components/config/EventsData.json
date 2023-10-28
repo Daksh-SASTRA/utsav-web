@@ -25,7 +25,7 @@
         "dept": "SEEE",
         "tagline":"Raise, Risk, Race",
         "desc": "Unleash your daring bets, embrace the exhilarating risk-reward dynamic, and outwit your rivals in this pulse-pounding, intellectual challenge",
-        "poster": "https://picsum.photos/500",
+        "poster": "/events/knowledge.jpg",
         "register_link": "https://docs.google.com/forms/d/1M8wz-1VBcPMXfHYVHkddDfuTysFi55cMuEAPCN0q1fA/edit?ts=652808a2"
     },
     {
@@ -103,7 +103,7 @@
         "dept": "Technotainment",
         "tagline": "Raise, Risk, Race",
         "desc": "",
-        "poster": "/events/cash-royale.jpg",
+        "poster": "/events/cash-royale.png",
         "register_link": "https://forms.gle/JWCoSNgGPTSXdXvn6"
     },
     {
@@ -132,7 +132,7 @@
         "tagline": "",
         "caption":"Feasting on Fatalities is Shao Khan's fun-time. What's yours?",
         "desc": "Team Gaming has arrived with a banger in its hut- ravishing realms are waiting for remarkable gamers like the one reading this poster- let's have fun mate!See you at the battlefield!",
-        "poster": "https://picsum.photos/500",
+        "poster": "/events/mortal-kombat.jpg",
         "register_link": "https://forms.gle/Bv2tyLs4zBDMnSsv9"
     }
 ]
