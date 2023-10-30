@@ -406,9 +406,9 @@ const Page = () => {
                                     :
                                 } */}
                                 <div className={styles.qrcodesection}>
-                                    <label>Pay ₹{workshopDetail.price} here </label>
-                                    {/* <h4>saneesha293@okicici</h4> */}
-                                    <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" />
+                                    {/* <label>Pay ₹{workshopDetail.price} here </label>
+                                    <h4>saneesha293@okicici</h4>
+                                    <Image src={workshopDetail.gpay} width={250} height={250} alt="QR Code for scanning" /> */}
                                     <input placeholder="Enter your UPI Ref. N0./UTR No." name="transactionid" type="text" onChange={handleChange} />
                                 </div>
 
