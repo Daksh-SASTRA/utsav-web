@@ -226,7 +226,7 @@ function MerchForm() {
     return (
         <div className={styles.merch_container}>
             <MerchItem merchName={"TSHIRT"} imageLink={tshirt} shoppingLink="/merch/tshirt" />
-            {validAuthToken !== null ?
+            {/* {validAuthToken !== null ?
                 status.exist ?
                     <div className={styles.afteruipage}>
                         <h2>Welcome back, {userDetails.fullname}</h2>
@@ -363,7 +363,8 @@ function MerchForm() {
                 //    <button onClick={studentLogin}><FontAwesomeIcon icon={faGoogle} /> Sign In</button>
                 //    <p>* kindly use SASTRA mail to log in *</p>
                 // </div>
-            }
+            } */}
+            <h2 className={styles.merchclosed}>Registrations are closed! Please contact Merchandise team.</h2>
             <ToastContainer />
         </div>
     )

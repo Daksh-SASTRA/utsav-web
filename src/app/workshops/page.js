@@ -23,12 +23,13 @@ function Workshops() {
         <main className={styles.main}>
             <BlobGlow />
             <Nav />
-            <h1 className={styles.heading}>Workshops</h1>
+            {/* <h1 className={styles.heading}>Workshops</h1> */}
             <div className={styles.tilecontainer}>
-                {WorkshopsData.map((item, i) => (
+                {/* {WorkshopsData.map((item, i) => (
                     <SmallTile key={i} workshopName={item.workshopName} imageLocation={item.image_url} detailsPage={i} />
-                ))}
+                ))} */}
             </div>
+            <h2 className={styles.heading} style={{ color: '#8D4AD8' }}>Workshops are closed for UTSAV 2023!</h2>
         </main>
         <Footer />
     </>
