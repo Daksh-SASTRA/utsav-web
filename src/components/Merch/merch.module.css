@@ -395,6 +395,10 @@
   font-size: 1.5rem;
 }
 
+.merchclosed {
+  align-self: center;
+}
+
 /* @media screen and (max-width: 1000px) {
   .merch_container {
     flex-direction: column;
@@ -465,5 +469,11 @@
 
   .qrcodesection > input {
     width: 100%;
+  }
+
+  .merchclosed {
+    text-align: center;
+    width: 95%;
+    align-self: center;
   }
 }
