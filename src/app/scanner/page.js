@@ -57,10 +57,11 @@ function ScannerPage() {
         })
     }
 
-    const goBack = () => {
+    const goBack = (e) => {
+        e.preventDefault;
+        setScanResult(null);
         setWorkshopID({ ...workshopID, id: null, workshopName: null });
         setResults({ ...results, exist: null, event: null, payment: null });
-        setScanResult(null);
         setFetchFromAPI(true);
     }
 
@@ -93,7 +94,7 @@ function ScannerPage() {
             //     theme: "colored",
             // });
         }
-    }, [workshopID]);
+    }, []);
 
 
 
