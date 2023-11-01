@@ -90,7 +90,7 @@ function ScannerPage() {
                                 <div className={styles.workshop_name} onClick={() => setWorkshopID({ ...workshopID, id: '1', workshopName: "IBM" })}>IBM</div>
                             </div></>
                         :
-                        <h5>Scan the person's ID card for {workshopID.workshopName} Workshop!</h5>
+                        <h5>Scan the person&#39;s ID card for {workshopID.workshopName} Workshop!</h5>
                 }
                 {
                     scanResult == null ?
