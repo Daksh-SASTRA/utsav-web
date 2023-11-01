@@ -18,7 +18,7 @@ function ScannerPage() {
         let scanner = new Html5QrcodeScanner(
             "reader",
             {
-                fps: 10,
+                fps: 60,
                 qrbox: { width: 250, height: 250 },
             });
 
