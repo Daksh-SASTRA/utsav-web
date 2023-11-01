@@ -25,7 +25,8 @@ function ScannerPage() {
         exist: null,
         event: null,
         payment: null
-    })
+    });
+    const [fetchFromAPI, setFetchFromAPI] = useState(true);
 
     const fetchDetails = async (decodedText) => {
         const url = `https://daksh.sastra.edu/registration/workshops/getuserqr?regno=${decodedText}&wname=${workshopID.workshopName}`;
@@ -33,20 +34,34 @@ function ScannerPage() {
             response.json().then((res) => {
                 if (response.status == 200) {
                     if (res.exist) {
-                        setResults({...results, payment: res.payment, exist: res.exist, event: res.event})
+                        setResults({ ...results, payment: res.payment, exist: res.exist, event: res.event });
+                        setFetchFromAPI(false);
                     }
                     else {
-                        setResults({...results, payment: "Not Paid", exist: false, event: null})
+                        setResults({ ...results, payment: "Not Paid", exist: false, event: null });
+                        setFetchFromAPI(false);
                     }
                 }
+            }).catch((error) => {
+                toast.error(error, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "colored",
+                });
             })
         })
     }
 
     const goBack = () => {
-        setWorkshopID({...workshopID, id: null, workshopName: null});
-        setResults({...results, exist: null, event: null, payment: null});
+        setWorkshopID({ ...workshopID, id: null, workshopName: null });
+        setResults({ ...results, exist: null, event: null, payment: null });
         setScanResult(null);
+        setFetchFromAPI(true);
     }
 
     useEffect(() => {
@@ -61,7 +76,9 @@ function ScannerPage() {
 
         function onScanSuccess(decodedText, decodedResult) {
             setScanResult(decodedText);
-            fetchDetails(decodedText);
+            if (fetchFromAPI) {
+                fetchDetails(decodedText);
+            }
         }
 
         function onScanFailure(error) {
@@ -98,7 +115,7 @@ function ScannerPage() {
                         <div id="reader"></div>
                         :
                         <div id={styles.resultScreen}>
-                            <h2>The student {scanResult} is a {results.exist === true ? <b>VALID</b> : <b>INVALID</b>} workshop attendee for the {results.event} workshop</h2>
+                            <h2>The student {scanResult} is a {results.exist === true ? <b>VALID attendee for the {results.event} workshop</b> : <b>INVALID user!</b>} </h2>
                             {results.exist ? <h5>Payment status: {results.payment}</h5> : <></>}
                             <button onClick={goBack}>Go Back</button>
                         </div>
