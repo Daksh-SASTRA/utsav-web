@@ -76,9 +76,12 @@ function ScannerPage() {
         scanner.render(onScanSuccess, onScanFailure);
 
         function onScanSuccess(decodedText, decodedResult) {
-            setScanResult(decodedText);
             if (fetchFromAPI) {
+                setScanResult(decodedText);
                 fetchDetails(decodedText);
+            }
+            else {
+                setScanResult(null);
             }
         }
 
