@@ -23,7 +23,7 @@ function ScannerPage() {
     });
     const [results, setResults] = useState({
         exist: null,
-        amt: null,
+        event: null,
         payment: null
     })
 
@@ -33,10 +33,10 @@ function ScannerPage() {
             response.json().then((res) => {
                 if (response.status == 200) {
                     if (res.exist) {
-                        setResults({...results, amt: res.amt, payment: res.payment, exist: res.exist})
+                        setResults({...results, payment: res.payment, exist: res.exist, event: res.event})
                     }
                     else {
-                        setResults({...results, amt: "None", payment: "Not Paid", exist: "FALSE"})
+                        setResults({...results, payment: "Not Paid", exist: false, event: null})
                     }
                 }
             })
@@ -45,7 +45,8 @@ function ScannerPage() {
 
     const goBack = () => {
         setWorkshopID({...workshopID, id: null, workshopName: null});
-        setResults({...results, exist: null, amt: null, payment: null});
+        setResults({...results, exist: null, event: null, payment: null});
+        setScanResult(null);
     }
 
     useEffect(() => {
@@ -97,8 +98,8 @@ function ScannerPage() {
                         <div id="reader"></div>
                         :
                         <div id={styles.resultScreen}>
-                            <h2>The student {scanResult} is a {results.exist ? <b>VALID</b> : <b>INVALID</b>} workshop attendee for the {workshopID.workshopName} workshop</h2>
-                            {results.exist ? <h5>Payment status: {results.payment}, Amount paid: ₹{results.amt}</h5> : <></>}
+                            <h2>The student {scanResult} is a {results.exist === true ? <b>VALID</b> : <b>INVALID</b>} workshop attendee for the {results.event} workshop</h2>
+                            {results.exist ? <h5>Payment status: {results.payment}</h5> : <></>}
                             <button onClick={goBack}>Go Back</button>
                         </div>
                 }
